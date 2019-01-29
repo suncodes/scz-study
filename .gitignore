@@ -1,0 +1,83 @@
+##############
+# common
+##############
+
+.*
+!.gitignore
+
+
+##############
+# java
+##############
+
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs
+hs_err_pid*
+
+
+##############
+# idea
+##############
+
+*.iml 
+MANIFEST.MF
+.idea/*
+
+##############
+# build package
+##############
+
+target
+
+##############
+# eclipse
+##############
+
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+
+##############
+# node
+##############
+
+node_modules
+
+##############
+# MAC
+##############
+
+*.DS_Store
+
+
+##############
+# redis 
+##############
+
+# Ignore redis binary dump (dump.rdb) files
+*.rdb
