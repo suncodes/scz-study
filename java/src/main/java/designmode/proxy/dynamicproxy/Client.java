@@ -14,6 +14,8 @@ public class Client {
                 new Class[]{Employee.class},
                 chiefHandler);
         System.out.println(proxy.getClass().getName());
+        // 对不同方法可以进行相同的操作
+        // 如添加日志，等
         proxy.work();
     }
 }
