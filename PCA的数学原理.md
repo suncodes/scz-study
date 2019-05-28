@@ -124,8 +124,7 @@ $$
 3 \\         
 2 
 \end{array}         
-\right)
-=
+\right)=
 \left(
 \begin{array}{lcr}   
 \frac{5}{\sqrt2} \\         
