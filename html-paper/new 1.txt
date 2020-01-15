@@ -1,0 +1,1198 @@
+[
+    {
+        "analysis": {
+            "analysisHtml": "<div>【分析】<br />此题考查了绝对值及相反数，关键明确：相反数的定义，只有符号不同的两个数是互为相反数；绝对值的定义，这个数在数轴上的点到原点的距离．<br />根据绝对值的定义，这个数在数轴上的点到原点的距离，\\(- \\dfrac {1}{2}\\)的绝对值为\\( \\dfrac {1}{2}\\)；再根据相反数的定义，只有符号不同的两个数是互为相反数，\\( \\dfrac {1}{2}\\)的相反数为\\(- \\dfrac {1}{2}\\)．<div>【解答】<br />解：\\(- \\dfrac {1}{2}\\)的绝对值为：\\(|- \\dfrac {1}{2}|= \\dfrac {1}{2}\\)，<br />\\( \\dfrac {1}{2}\\)的相反数为：\\(- \\dfrac {1}{2}\\)，<br />所以\\(- \\dfrac {1}{2}\\)的绝对值的相反数是为：\\(- \\dfrac {1}{2}\\)，<br />故选B．<br /><br /></div></div>",
+            "answerHtml": "\\(B\\)",
+            "contentHtml": "<div>\\(- \\dfrac {1}{2}\\)的绝对值的相反数是\\((\\)　　\\()\\)</div><div><table width=\"700px\"><tbody><tr><td class=\"td25\">A.&nbsp;\\( \\dfrac {1}{2}\\)</td><td class=\"td25\">B.&nbsp;\\(- \\dfrac {1}{2}\\)</td><td class=\"td25\">C.&nbsp;\\(2\\)</td><td class=\"tde\">D.&nbsp;\\(-2\\)</td></tr></tbody></table></div>",
+            "difficultyValue": 2,
+            "disTitleNumber": "1",
+            "imageAnswer": "https://bj.download.cycore.cn/question/570/fc61c989-0e70-4d53-b4a8-0d8dd0129808.png",
+            "relatedKnowledgeGroups": [
+                {
+                    "dispTitle": "1",
+                    "relatedKnowledges": [
+                        {
+                            "id": "020449000000002n",
+                            "name": "相反数"
+                        },
+                        {
+                            "id": "020449000000003n",
+                            "name": "绝对值"
+                        }
+                    ],
+                    "topicNumber": 1
+                }
+            ],
+            "standardAnswer": "B",
+            "topicAnalysisImgUrl": "https://bj.download.cycore.cn/question/665/639e1d84-b4f3-432f-94fe-8b512b85afe5.png",
+            "topicId": "8e30ba3f-7ea4-4c5b-b73d-338b302bfe00",
+            "topicImgUrl": "https://bj.download.cycore.cn/question/842/e5b641ea-30b2-4def-9a9a-1d3ed61a2999.png",
+            "topicNumber": 1,
+            "topicSetId": "e66ba27d-3a16-4e4b-8c2a-eedd673cd652",
+            "topicSortShow": 1,
+            "topicSourcePaperName": "2017-2018学年陕西省西安二十六中七年级（上）第一次月考数学试卷",
+            "topicType": "00",
+            "topicVersion": "5"
+        },
+        "avgScore": 2.4762,
+        "beSelectedStudentCount": 0,
+        "collectionSure": false,
+        "commentTopicSure": true,
+        "correctRate": 82.53968,
+        "correctStudentCount": 52,
+        "dispTitle": "1",
+        "englishCompositionTopic": false,
+        "errorStudentCount": 11,
+        "isCandidate": false,
+        "isComplex": false,
+        "isIntelligent": false,
+        "isSubjectObject": false,
+        "isTypicalTopic": false,
+        "markingPaperTopicId": "96ad66a9-5990-4e8e-a667-8e884a3992f0",
+        "maxScore": 3,
+        "minScore": 0,
+        "schAvgScore": 2.4491,
+        "schMaxScore": 3,
+        "schMinScore": 0,
+        "schScoreRate": 81.636665,
+        "selectRate": 0,
+        "standardScore": 3,
+        "topicId": "8e30ba3f-7ea4-4c5b-b73d-338b302bfe00",
+        "topicNumber": 1,
+        "topicScoreRate": 82.54001,
+        "topicSortShow": 1
+    },
+    {
+        "analysis": {
+            "analysisHtml": "<div>【分析】<br />本题主要考查有理数减法计算的知识，关键是知道求一个数的绝对值的方法，据此方法解答．<br />【解答】<br />解：\\(|- \\dfrac{1}{2}|- \\dfrac{1}{2}= \\dfrac{1}{2}- \\dfrac{1}{2}=0 \\)<br />故选A．<br /></div>",
+            "answerHtml": "\\(A\\)",
+            "contentHtml": "<div><p>计算\\(|- \\dfrac{1}{2}|- \\dfrac{1}{2} \\)的结果是\\((\\)　　\\()\\)</p> <p></p></div><div><table width=\"700px\"><tbody><tr><td class=\"td25\">A.&nbsp;\\(0\\)&nbsp;&nbsp;</td><td class=\"td25\">B.&nbsp;\\(1\\)&nbsp;&nbsp;</td><td class=\"td25\">C.&nbsp;\\(-1\\)</td><td class=\"tde\">D.&nbsp;\\(\\dfrac{1}{4} \\) <p></p></td></tr></tbody></table></div>",
+            "difficultyValue": 1,
+            "disTitleNumber": "2",
+            "imageAnswer": "https://bj.download.cycore.cn/question/390/f95f7481-9472-4c5a-a1fd-d47a53b66566.png",
+            "relatedKnowledgeGroups": [
+                {
+                    "dispTitle": "2",
+                    "relatedKnowledges": [
+                        {
+                            "id": "020449000000003n",
+                            "name": "绝对值"
+                        },
+                        {
+                            "id": "020449000000007n",
+                            "name": "有理数的减法"
+                        }
+                    ],
+                    "topicNumber": 2
+                }
+            ],
+            "standardAnswer": "A",
+            "topicAnalysisImgUrl": "https://bj.download.cycore.cn/question/801/874e5590-d253-4186-9e46-395414f09fa3.png",
+            "topicId": "235760fe-1de0-4ef1-8103-d9a5b405f9e7",
+            "topicImgUrl": "https://bj.download.cycore.cn/question/355/ace26d79-fc38-4871-94b5-a84339b44a3f.png",
+            "topicNumber": 2,
+            "topicSetId": "e66ba27d-3a16-4e4b-8c2a-eedd673cd652",
+            "topicSortShow": 2,
+            "topicSourcePaperName": "乌审旗第一中学2018-2019学年度第一学期七年级第一次阶段性考试(数学)",
+            "topicType": "00",
+            "topicVersion": "5"
+        },
+        "avgScore": 2.9048,
+        "beSelectedStudentCount": 0,
+        "collectionSure": false,
+        "commentTopicSure": true,
+        "correctRate": 96.82539,
+        "correctStudentCount": 61,
+        "dispTitle": "2",
+        "englishCompositionTopic": false,
+        "errorStudentCount": 2,
+        "isCandidate": false,
+        "isComplex": false,
+        "isIntelligent": false,
+        "isSubjectObject": false,
+        "isTypicalTopic": false,
+        "markingPaperTopicId": "0b7e5853-2fc7-4e81-87c0-cf52403dac21",
+        "maxScore": 3,
+        "minScore": 0,
+        "schAvgScore": 2.8917,
+        "schMaxScore": 3,
+        "schMinScore": 0,
+        "schScoreRate": 96.39,
+        "selectRate": 0,
+        "standardScore": 3,
+        "topicId": "235760fe-1de0-4ef1-8103-d9a5b405f9e7",
+        "topicNumber": 2,
+        "topicScoreRate": 96.82667,
+        "topicSortShow": 2
+    },
+    {
+        "analysis": {
+            "analysisHtml": "<div>【分析】<br />本题主要考查了等式的基本性质\\(.\\)等式性质：\\(1\\)、等式的两边同时加上或减去同一个数或字母，等式仍成立；\\(2\\)、等式的两边同时乘以或除以同一个不为\\(0\\)数或字母，等式仍成立，根据等式的基本性质进行判断即可．<br />【解答】<br />A.若\\(x=y\\)，由等式性质\\(2\\)，除以同一个不为\\(0\\)数或字母，等式才成立，\\(a-2\\)可能为\\(0\\)，所以错误，<br />B.若\\(a=b\\)，在两边同减\\(3\\)，得\\(a-3=b-3\\)，所以错误，<br />C.若\\(2π{r}_{1}=2π{r}_{2}\\)，因为\\(2{\\rm π}\\neq 0\\)，所以\\(r_{1}=r_{2}\\)，所以正确，<br />D.若\\(\\dfrac{a}{b}= \\dfrac{c}{d}\\)，可得到\\(ad=bc\\)，所以错误．<br />故选C．<br /><br /></div>",
+            "answerHtml": "\\(C\\)",
+            "contentHtml": "<div><p>下列等式变形中，正确的是(&nbsp;&nbsp;&nbsp;&nbsp;)</p> <p></p></div><div><table width=\"700px\"><tbody><tr><td class=\"td25\">A.&nbsp;若\\(x=y\\)，则\\(\\dfrac{x}{a-2}=\\dfrac{y}{a-2}\\)</td><td class=\"td25\">B.&nbsp;若\\(a=b\\)，则\\(a-3=3-b\\) <p></p></td><td class=\"td25\">C.&nbsp;若\\(2\\pi {{r}_{1}}=2\\pi {{r}_{2}}\\)，则\\({{r}_{1}}={{r}_{2}}\\)</td><td class=\"tde\">D.&nbsp;若\\(\\dfrac{a}{b}=\\dfrac{c}{d}\\)，则\\(a=c\\)</td></tr></tbody></table></div>",
+            "difficultyValue": 2,
+            "disTitleNumber": "3",
+            "imageAnswer": "https://bj.download.cycore.cn/question/396/04f1d2fa-1d60-4335-bee1-3a55910b3f62.png",
+            "relatedKnowledgeGroups": [
+                {
+                    "dispTitle": "3",
+                    "relatedKnowledges": [
+                        {
+                            "id": "020449001000001n",
+                            "name": "等式的性质"
+                        }
+                    ],
+                    "topicNumber": 3
+                }
+            ],
+            "standardAnswer": "C",
+            "topicAnalysisImgUrl": "https://bj.download.cycore.cn/question/195/e91d54cc-2208-48d9-9b3b-cc1224e23df2.png",
+            "topicId": "70200df9-489c-48fe-87bd-e0616429d445",
+            "topicImgUrl": "https://bj.download.cycore.cn/question/846/90ce2a28-731a-4c73-9e84-5b65cb485127.png",
+            "topicNumber": 3,
+            "topicSetId": "e66ba27d-3a16-4e4b-8c2a-eedd673cd652",
+            "topicSortShow": 3,
+            "topicSourcePaperName": "SXZY 初中复习9年级 数学初中数学复习测试卷三  方程与方程组(A卷)",
+            "topicType": "00",
+            "topicVersion": "8"
+        },
+        "avgScore": 1.5714,
+        "beSelectedStudentCount": 0,
+        "collectionSure": false,
+        "commentTopicSure": true,
+        "correctRate": 52.38095,
+        "correctStudentCount": 33,
+        "dispTitle": "3",
+        "englishCompositionTopic": false,
+        "errorStudentCount": 30,
+        "isCandidate": false,
+        "isComplex": false,
+        "isIntelligent": false,
+        "isSubjectObject": false,
+        "isTypicalTopic": false,
+        "markingPaperTopicId": "e0a5a83e-d3f4-4c29-9df2-eea2f9b0cc24",
+        "maxScore": 3,
+        "minScore": 0,
+        "schAvgScore": 1.6665,
+        "schMaxScore": 3,
+        "schMinScore": 0,
+        "schScoreRate": 55.549995,
+        "selectRate": 0,
+        "standardScore": 3,
+        "topicId": "70200df9-489c-48fe-87bd-e0616429d445",
+        "topicNumber": 3,
+        "topicScoreRate": 52.38,
+        "topicSortShow": 3
+    },
+    {
+        "analysis": {
+            "analysisHtml": "<div>解：\\(A.10\\)是单项式，此选项错误；<br />B.\\(- \\dfrac {abc}{2}\\)的系数是\\(- \\dfrac {1}{2}\\)，此选项错误；<br />C.\\(xy^{2}\\)的系数是\\(1\\)，次数是\\(3\\)，此选项错误；<br />D.\\(- \\dfrac {2}{3}x^{2}y\\)的系数是\\(- \\dfrac {2}{3}\\)，次数是\\(3\\)，此选项正确；<br />故选：\\(D\\)．<br />根据单项式系数及次数的定义对各选项进行逐一分析即可．<br />本题考查的是单项式，熟知数或字母的积组成的式子叫做单项式，单独的一个数或字母也是单项式是解答此题是的关键．</div>",
+            "answerHtml": "\\(D\\)",
+            "contentHtml": "<div>下列说法正确的是\\((\\)　　\\()\\)</div><div><table width=\"700px\"><tbody><tr><td class=\"td50\">A.&nbsp;\\(10\\)不是单项式</td><td class=\"td50\">B.&nbsp;\\(- \\dfrac {abc}{2}\\)的系数是\\(-1\\)</td></tr><tr><td class=\"td50\">C.&nbsp;\\(xy^{2}\\)的系数是\\(0\\)，次数是\\(-2\\)</td><td class=\"tde\">D.&nbsp;\\(- \\dfrac {2}{3}x^{2}y\\)的系数是\\(- \\dfrac {2}{3}\\)，次数是\\(3\\)</td></tr></tbody></table></div>",
+            "difficultyValue": 2,
+            "disTitleNumber": "4",
+            "imageAnswer": "https://bj.download.cycore.cn/question/158/90113e39-5261-46d4-8714-06bd51936413.png",
+            "relatedKnowledgeGroups": [
+                {
+                    "dispTitle": "4",
+                    "relatedKnowledges": [
+                        {
+                            "id": "020449000003002n",
+                            "name": "单项式"
+                        }
+                    ],
+                    "topicNumber": 4
+                }
+            ],
+            "standardAnswer": "D",
+            "topicAnalysisImgUrl": "https://bj.download.cycore.cn/question/960/43bcedc8-f9ee-47ba-a54f-031c821ac306.png",
+            "topicId": "cf3fcc35-8029-41bb-a1e5-d695bbb22a02",
+            "topicImgUrl": "https://bj.download.cycore.cn/question/417/83339740-7554-4651-8a09-7220f8c08bfc.png",
+            "topicNumber": 4,
+            "topicSetId": "e66ba27d-3a16-4e4b-8c2a-eedd673cd652",
+            "topicSortShow": 4,
+            "topicSourcePaperName": "羊山中学2019-2020学年度七年级上期期末考试(数学)",
+            "topicType": "00",
+            "topicVersion": "3"
+        },
+        "avgScore": 2.7619,
+        "beSelectedStudentCount": 0,
+        "collectionSure": false,
+        "commentTopicSure": true,
+        "correctRate": 92.06349,
+        "correctStudentCount": 58,
+        "dispTitle": "4",
+        "englishCompositionTopic": false,
+        "errorStudentCount": 5,
+        "isCandidate": false,
+        "isComplex": false,
+        "isIntelligent": false,
+        "isSubjectObject": false,
+        "isTypicalTopic": false,
+        "markingPaperTopicId": "7f6016e1-5a70-437b-9512-093fc77d04d9",
+        "maxScore": 3,
+        "minScore": 0,
+        "schAvgScore": 2.8013,
+        "schMaxScore": 3,
+        "schMinScore": 0,
+        "schScoreRate": 93.37666,
+        "selectRate": 0,
+        "standardScore": 3,
+        "topicId": "cf3fcc35-8029-41bb-a1e5-d695bbb22a02",
+        "topicNumber": 4,
+        "topicScoreRate": 92.06333,
+        "topicSortShow": 4
+    },
+    {
+        "analysis": {
+            "analysisHtml": "<div>解：\\(∵a-b=-3\\)，\\(c+d=2\\)，<br />\\(∴\\)原式\\(=b+c-a+d=-(a-b)+(c+d)=3+2=5\\)，<br />故选：\\(C\\)．<br />先去括号，再合并同类项即可．<br />本题考查了去括号和添括号，掌握去括号与合并同类项是解题的关键．</div>",
+            "answerHtml": "\\(C\\)",
+            "contentHtml": "<div>已知\\(a-b=-3\\)，\\(c+d=2\\)，则\\((b+c)-(a-d)\\)的值为\\((\\)　　\\()\\)</div><div><table width=\"700px\"><tbody><tr><td class=\"td25\">A.&nbsp;\\(-1\\)</td><td class=\"td25\">B.&nbsp;\\(-5\\)</td><td class=\"td25\">C.&nbsp;\\(5\\)</td><td class=\"tde\">D.&nbsp;\\(1\\)</td></tr></tbody></table></div>",
+            "difficultyValue": 1,
+            "disTitleNumber": "5",
+            "imageAnswer": "https://bj.download.cycore.cn/question/942/bd9a5f54-96fb-426f-943e-5f1d6e6144b2.png",
+            "relatedKnowledgeGroups": [
+                {
+                    "dispTitle": "5",
+                    "relatedKnowledges": [
+                        {
+                            "id": "020449000003006n",
+                            "name": "整式的加减"
+                        }
+                    ],
+                    "topicNumber": 5
+                }
+            ],
+            "standardAnswer": "C",
+            "topicAnalysisImgUrl": "https://bj.download.cycore.cn/question/875/98a2039c-0d16-4791-b117-a2f382a147be.png",
+            "topicId": "22a6f1b5-08c8-450a-b191-28e6598bcb08",
+            "topicImgUrl": "https://bj.download.cycore.cn/question/135/b01bafcc-f522-4d18-be1d-0c6e24f1f8aa.png",
+            "topicNumber": 5,
+            "topicSetId": "e66ba27d-3a16-4e4b-8c2a-eedd673cd652",
+            "topicSortShow": 5,
+            "topicSourcePaperName": "2018-2019学年湖南省长沙市开福区青竹湖湘一外国语学校七年级（下）期末数学试卷",
+            "topicType": "00",
+            "topicVersion": "15"
+        },
+        "avgScore": 1.8571,
+        "beSelectedStudentCount": 0,
+        "collectionSure": false,
+        "commentTopicSure": true,
+        "correctRate": 61.904762,
+        "correctStudentCount": 39,
+        "dispTitle": "5",
+        "englishCompositionTopic": false,
+        "errorStudentCount": 24,
+        "isCandidate": false,
+        "isComplex": false,
+        "isIntelligent": false,
+        "isSubjectObject": false,
+        "isTypicalTopic": false,
+        "markingPaperTopicId": "e812fd34-ca3d-4900-8117-16ef5719d465",
+        "maxScore": 3,
+        "minScore": 0,
+        "schAvgScore": 1.9982,
+        "schMaxScore": 3,
+        "schMinScore": 0,
+        "schScoreRate": 66.606674,
+        "selectRate": 0,
+        "standardScore": 3,
+        "topicId": "22a6f1b5-08c8-450a-b191-28e6598bcb08",
+        "topicNumber": 5,
+        "topicScoreRate": 61.903336,
+        "topicSortShow": 5
+    },
+    {
+        "analysis": {
+            "analysisHtml": "<div>解：\\(A\\)、是三棱柱，是柱体，不符合题意； <br />B、是圆柱，是柱体，不符合题意； <br />C、是球，属球体，符号题意； <br />D、是圆锥，是锥体，不符合题意； <br />故选：\\(C\\)．<br />解这类题首先要明确柱体，椎体、球体的概念，然后根据图示进行解答．<br />本题考查了立体图形的定义，注意几何体的分类，一般分为柱体、锥体和球，注意球和圆的区别，球是立体图形，圆是平面图形．</div>",
+            "answerHtml": "\\(C\\)",
+            "contentHtml": "<div>下面几何体中，既不是柱体，又不是锥体的是\\((\\)　　\\()\\)</div><div><table width=\"700px\"><tbody><tr><td class=\"td25\">A.&nbsp;<img alt=\"\" src=\"https://bj.download.cycore.cn/question/2018/12/29/8/43/49af3de3-57b6-4cc3-ab44-d4adadb6748d.png\" style=\"vertical-align:middle\" w=\"102px\" h=\"47px\" /></td><td class=\"td25\">B.&nbsp;<img alt=\"\" src=\"https://bj.download.cycore.cn/question/2018/12/29/8/43/122a914a-5705-4194-aa9b-e084a1485cce.png\" style=\"vertical-align:middle\" w=\"74px\" h=\"51px\" /></td><td class=\"td25\">C.&nbsp;<img alt=\"\" src=\"https://bj.download.cycore.cn/question/2018/12/29/8/43/c0b1f2da-a5ec-41d6-9509-1dfc541f5f48.png\" style=\"vertical-align:middle\" w=\"61px\" h=\"47px\" /></td><td class=\"tde\">D.&nbsp;<img alt=\"\" src=\"https://bj.download.cycore.cn/question/2018/12/29/8/43/58a28ae2-5101-499a-8265-ca219fe317a8.png\" style=\"vertical-align:middle\" w=\"57px\" h=\"49px\" /></td></tr></tbody></table></div>",
+            "difficultyValue": 1,
+            "disTitleNumber": "6",
+            "imageAnswer": "https://bj.download.cycore.cn/question/640/c4ab3605-189b-4901-9742-049e23e8d399.png",
+            "relatedKnowledgeGroups": [
+                {
+                    "dispTitle": "6",
+                    "relatedKnowledges": [
+                        {
+                            "id": "020449003000032n",
+                            "name": "认识立体图形"
+                        }
+                    ],
+                    "topicNumber": 6
+                }
+            ],
+            "standardAnswer": "C",
+            "topicAnalysisImgUrl": "https://bj.download.cycore.cn/question/668/e18312b6-f8cb-41e4-8fc4-d69813a3d4c8.png",
+            "topicId": "0431ab09-6b77-4012-9f6d-4bafa5d363c3",
+            "topicImgUrl": "https://bj.download.cycore.cn/question/79/ddfd50cf-6e29-465a-a4bc-a2cc41df4ef0.png",
+            "topicNumber": 6,
+            "topicSetId": "e66ba27d-3a16-4e4b-8c2a-eedd673cd652",
+            "topicSortShow": 6,
+            "topicSourcePaperName": "羊山中学2019-2020学年度七年级上期期末考试(数学)",
+            "topicType": "00",
+            "topicVersion": "11"
+        },
+        "avgScore": 2.9048,
+        "beSelectedStudentCount": 0,
+        "collectionSure": false,
+        "commentTopicSure": true,
+        "correctRate": 96.82539,
+        "correctStudentCount": 61,
+        "dispTitle": "6",
+        "englishCompositionTopic": false,
+        "errorStudentCount": 2,
+        "isCandidate": false,
+        "isComplex": false,
+        "isIntelligent": false,
+        "isSubjectObject": false,
+        "isTypicalTopic": false,
+        "markingPaperTopicId": "d7d4c3e2-8a33-4170-adec-ddb1e84a88e7",
+        "maxScore": 3,
+        "minScore": 0,
+        "schAvgScore": 2.8931,
+        "schMaxScore": 3,
+        "schMinScore": 0,
+        "schScoreRate": 96.43667,
+        "selectRate": 0,
+        "standardScore": 3,
+        "topicId": "0431ab09-6b77-4012-9f6d-4bafa5d363c3",
+        "topicNumber": 6,
+        "topicScoreRate": 96.82667,
+        "topicSortShow": 6
+    },
+    {
+        "analysis": {
+            "analysisHtml": "<div>解：设这种服装每件的成本价为\\(x\\)元， <br />由题意得：\\((1+20\\%)⋅90\\%⋅x-x=8\\)， <br />解得：\\(x=100\\)．<br />答：这种服装每件的成本价为\\(100\\)元．<br />设这种服装每件的成本价为\\(x\\)元，根据题意列出一元一次方程\\((1+20\\%)⋅90\\%⋅x-x=8\\)，求出\\(x\\)的值即可．<br />本题主要考查了一元一次方程的应用，解答本题的关键是根据题意正确地列出一元一次方程，此题难度不大．</div>",
+            "answerHtml": "\\(A\\)",
+            "contentHtml": "<div>一家商店将某种服装按成本价提高\\(20\\%\\)后标价，又以\\(9\\)折优惠卖出，结果每件服装仍可获利\\(8\\)元，则这种服装每件的成本是\\((\\)　　\\()\\)</div><div><table width=\"700px\"><tbody><tr><td class=\"td25\">A.&nbsp;\\(100\\)元</td><td class=\"td25\">B.&nbsp;\\(105\\)元</td><td class=\"td25\">C.&nbsp;\\(110\\)元</td><td class=\"tde\">D.&nbsp;\\(115\\)元</td></tr></tbody></table></div>",
+            "difficultyValue": 2,
+            "disTitleNumber": "7",
+            "imageAnswer": "https://bj.download.cycore.cn/question/293/4be3d459-4afb-493d-aa61-7989829c295d.png",
+            "relatedKnowledgeGroups": [
+                {
+                    "dispTitle": "7",
+                    "relatedKnowledges": [
+                        {
+                            "id": "020449001000006n",
+                            "name": "一元一次方程的应用"
+                        }
+                    ],
+                    "topicNumber": 7
+                }
+            ],
+            "standardAnswer": "A",
+            "topicAnalysisImgUrl": "https://bj.download.cycore.cn/question/460/3000c9b7-a1a8-48c7-8c8f-43c2755a0338.png",
+            "topicId": "433a7fd6-1462-4b40-aa98-4bccf8f462c1",
+            "topicImgUrl": "https://bj.download.cycore.cn/question/822/be5a4d0f-20b9-417a-83c4-7ee7cfb87fda.png",
+            "topicNumber": 7,
+            "topicSetId": "e66ba27d-3a16-4e4b-8c2a-eedd673cd652",
+            "topicSortShow": 7,
+            "topicSourcePaperName": "2017-2018学年甘肃省张掖市高台县南华中学七年级（上）月考数学试卷（12月份）",
+            "topicType": "00",
+            "topicVersion": "22"
+        },
+        "avgScore": 1.9048,
+        "beSelectedStudentCount": 0,
+        "collectionSure": false,
+        "commentTopicSure": true,
+        "correctRate": 63.49206,
+        "correctStudentCount": 40,
+        "dispTitle": "7",
+        "englishCompositionTopic": false,
+        "errorStudentCount": 23,
+        "isCandidate": false,
+        "isComplex": false,
+        "isIntelligent": false,
+        "isSubjectObject": false,
+        "isTypicalTopic": false,
+        "markingPaperTopicId": "d0cbafe6-e764-48d5-81e9-8efe5cfc7db8",
+        "maxScore": 3,
+        "minScore": 0,
+        "schAvgScore": 2.1092,
+        "schMaxScore": 3,
+        "schMinScore": 0,
+        "schScoreRate": 70.30666,
+        "selectRate": 0,
+        "standardScore": 3,
+        "topicId": "433a7fd6-1462-4b40-aa98-4bccf8f462c1",
+        "topicNumber": 7,
+        "topicScoreRate": 63.493336,
+        "topicSortShow": 7
+    },
+    {
+        "analysis": {
+            "analysisHtml": "<div>【分析】<br />本题主要考查了正方体相对两个面上的文字，注意正方体的空间图形，从相对面入手，分析及解答问题．<br />正方体的表面展开图，相对的面之间一定相隔一个正方形确定出相对面，再根据互为相反数的定义解答．<br />【解答】<br />解：正方体的表面展开图，相对的面之间一定相隔一个正方形， <br />“\\(A\\)”与“\\(+1\\)”是相对面， <br />“\\(B\\)”与“\\(-2\\)”是相对面， <br />“\\(C\\)”与“\\(0\\)”是相对面， <br />\\(∵\\)相对的面上的两个数互为相反数， <br />\\(∴\\)填入正方形\\(A\\)、\\(B\\)、\\(C\\)内的三个数依次为\\(-1\\)，\\(2\\)，\\(0\\)．<br />故选A．<br /></div>",
+            "answerHtml": "\\(A\\)",
+            "contentHtml": "<div>如图为一个正方体纸盒的展开图，若在其中的三个正方形\\(A\\)、\\(B\\)、\\(C\\) 内分别填人适当的数，使得它们折成正方体\\(.\\)若相对的面上的两个数互为相反数，则填人正方形\\(A\\)、\\(B\\)、\\(C\\)内的三个数依次为(&nbsp;&nbsp;&nbsp;&nbsp;) <br /><img bigger=\"https://bj.download.cycore.cn/question/2020/1/7/16/55/d2780c66-56d2-45cc-83d7-814c3fad51ce.png\" h=\"97.979166px\" src=\"https://bj.download.cycore.cn/question/2020/1/7/16/55/77cc16f1-0a20-4cec-ae52-2e877e6f9a9d.png\" w=\"84.979166px\" class=\"imgClass\" /> <br /></div><div><table width=\"700px\"><tbody><tr><td class=\"td25\">A.&nbsp;\\(-1\\) ，\\(2\\)，\\(0\\)&nbsp;&nbsp;&nbsp;</td><td class=\"td25\">B.&nbsp;&nbsp; \\(0\\)，\\(-2\\)，\\(1\\)&nbsp;&nbsp;&nbsp;</td><td class=\"td25\">C.&nbsp;\\(-2\\)，\\(0\\)，\\(1\\)&nbsp;&nbsp;&nbsp;</td><td class=\"tde\">D.&nbsp;\\(2\\)，\\(1\\)，\\(0\\)</td></tr></tbody></table></div>",
+            "difficultyValue": 3,
+            "disTitleNumber": "8",
+            "imageAnswer": "https://bj.download.cycore.cn/question/747/b45d73ab-027b-457e-baf1-2b1eb5c718a0.png",
+            "relatedKnowledgeGroups": [
+                {
+                    "dispTitle": "8",
+                    "relatedKnowledges": [
+                        {
+                            "id": "020449000000002n",
+                            "name": "相反数"
+                        },
+                        {
+                            "id": "020449003000034n",
+                            "name": "正方体相对两个面上的文字"
+                        }
+                    ],
+                    "topicNumber": 8
+                }
+            ],
+            "standardAnswer": "A",
+            "topicAnalysisImgUrl": "https://bj.download.cycore.cn/question/938/6d6cae10-b9dc-4bc0-83dd-0601dfd7677e.png",
+            "topicId": "adcfe37c-dc7c-4d2f-9967-2475ac889a2d",
+            "topicImgUrl": "https://bj.download.cycore.cn/question/223/1df0f43f-adea-45d5-b415-a81cd976534c.png",
+            "topicNumber": 8,
+            "topicSetId": "e66ba27d-3a16-4e4b-8c2a-eedd673cd652",
+            "topicSortShow": 8,
+            "topicSourcePaperName": "羊山中学2019-2020学年度七年级上期期末考试(数学)",
+            "topicType": "00",
+            "topicVersion": "1"
+        },
+        "avgScore": 2.7619,
+        "beSelectedStudentCount": 0,
+        "collectionSure": false,
+        "commentTopicSure": true,
+        "correctRate": 92.06349,
+        "correctStudentCount": 58,
+        "dispTitle": "8",
+        "englishCompositionTopic": false,
+        "errorStudentCount": 5,
+        "isCandidate": false,
+        "isComplex": false,
+        "isIntelligent": false,
+        "isSubjectObject": false,
+        "isTypicalTopic": false,
+        "markingPaperTopicId": "9664060a-be01-4d24-9cd5-9f378cdb9c38",
+        "maxScore": 3,
+        "minScore": 0,
+        "schAvgScore": 2.6957,
+        "schMaxScore": 3,
+        "schMinScore": 0,
+        "schScoreRate": 89.85667,
+        "selectRate": 0,
+        "standardScore": 3,
+        "topicId": "adcfe37c-dc7c-4d2f-9967-2475ac889a2d",
+        "topicNumber": 8,
+        "topicScoreRate": 92.06333,
+        "topicSortShow": 8
+    },
+    {
+        "analysis": {
+            "analysisHtml": "<div>【分析】<br />本题考查了近似数和科学记数法，四舍五入法精确到哪一位，要从这一位的下一位四舍五入\\(.\\)精确到哪一位，就是对它后边的一位进行四舍五入．<br />首先利用科学记数法表示，然后把千位上的数字\\(5\\)进行四舍五入即可．<br />【解答】<br />解：\\(205001\\)精确到万位的近似数是\\(2.1&times;10^{5}\\)，<br />故选D．<br /></div>",
+            "answerHtml": "\\(D\\)",
+            "contentHtml": "<div><p class=\"MsoPlainText\">数\\(205 001\\)精确到万位的近似数是(&nbsp;&nbsp;&nbsp;&nbsp;)</p></div><div><table width=\"700px\"><tbody><tr><td class=\"td25\">A.&nbsp;\\(20\\)&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td class=\"td25\">B.&nbsp;\\(21\\)</td><td class=\"td25\">C.&nbsp;\\(2.0&times;10^{5}\\)</td><td class=\"tde\">D.&nbsp;\\(2.1&times;10^{5}\\)</td></tr></tbody></table></div>",
+            "difficultyValue": 2,
+            "disTitleNumber": "9",
+            "imageAnswer": "https://bj.download.cycore.cn/question/930/093480ad-510a-4d9d-840d-7118e61f0777.png",
+            "relatedKnowledgeGroups": [
+                {
+                    "dispTitle": "9",
+                    "relatedKnowledges": [
+                        {
+                            "id": "020449000000012n",
+                            "name": "近似数"
+                        },
+                        {
+                            "id": "020449000000014n",
+                            "name": "科学记数法-绝对值较大的数"
+                        }
+                    ],
+                    "topicNumber": 9
+                }
+            ],
+            "standardAnswer": "D",
+            "topicAnalysisImgUrl": "https://bj.download.cycore.cn/question/326/55f575c0-b120-4b58-b735-6e9b54f21653.png",
+            "topicId": "93a4e097-7933-4cdb-b981-d5552330e214",
+            "topicImgUrl": "https://bj.download.cycore.cn/question/985/90c490aa-ab6b-43e4-b0b3-d1499d0f233a.png",
+            "topicNumber": 9,
+            "topicSetId": "e66ba27d-3a16-4e4b-8c2a-eedd673cd652",
+            "topicSortShow": 9,
+            "topicSourcePaperName": "羊山中学2019-2020学年度七年级上期期末考试(数学)",
+            "topicType": "00",
+            "topicVersion": "1"
+        },
+        "avgScore": 2.0476,
+        "beSelectedStudentCount": 0,
+        "collectionSure": false,
+        "commentTopicSure": true,
+        "correctRate": 68.25397,
+        "correctStudentCount": 43,
+        "dispTitle": "9",
+        "englishCompositionTopic": false,
+        "errorStudentCount": 20,
+        "isCandidate": false,
+        "isComplex": false,
+        "isIntelligent": false,
+        "isSubjectObject": false,
+        "isTypicalTopic": false,
+        "markingPaperTopicId": "6e74d13e-89b3-4501-a1c6-42fe3afe022f",
+        "maxScore": 3,
+        "minScore": 0,
+        "schAvgScore": 2.1914,
+        "schMaxScore": 3,
+        "schMinScore": 0,
+        "schScoreRate": 73.04667,
+        "selectRate": 0,
+        "standardScore": 3,
+        "topicId": "93a4e097-7933-4cdb-b981-d5552330e214",
+        "topicNumber": 9,
+        "topicScoreRate": 68.253334,
+        "topicSortShow": 9
+    },
+    {
+        "analysis": {
+            "analysisHtml": "<div>解：设甲、乙两个水桶中水的重量是\\(a\\)，<br />\\(∵\\)甲桶的水倒三分之一给乙桶后乙桶的水\\(=(1+ \\dfrac {1}{3})a\\)，甲桶为\\((1- \\dfrac {1}{3})a\\)，<br />\\(∴\\)把乙桶的水倒出四分之一给甲桶时，<br />甲桶有\\((1- \\dfrac {1}{3})a+(1+ \\dfrac {1}{3})a&times; \\dfrac {1}{4}= \\dfrac {2}{3}a+ \\dfrac {1}{3}a=a\\)；<br />乙桶有水\\(=(1+ \\dfrac {1}{3})a&times;(1- \\dfrac {1}{4})=a\\)，<br />\\(∴\\)甲\\(=\\)乙．<br />故选：\\(B\\)．<br />设甲、乙两个水桶中水的重量是\\(a\\)，甲桶的水倒三分之一给乙桶后乙桶的水\\(=(1+ \\dfrac {1}{3})a\\)，甲桶为\\((1- \\dfrac {1}{3})a\\)，把乙桶的水倒出四分之一给甲桶时，甲桶有\\((1- \\dfrac {1}{3})a+(1+ \\dfrac {1}{3})a&times; \\dfrac {1}{4}\\)，乙桶有水\\(=(1+ \\dfrac {1}{3})a&times;(1- \\dfrac {1}{4})\\)，再比较出其大小即可．<br />本题考查的是整式的加减，熟知整式的加减实质上是合并同类项是解答此题的关键．</div>",
+            "answerHtml": "\\(B\\)",
+            "contentHtml": "<div><p class=\"MsoPlainText\">甲、乙两个水桶中质量相等的水，先把甲桶的水倒三分之一给乙桶，再把乙桶的水四分之一给甲桶\\((\\)假设不会溢出\\()\\)，最后，甲乙两桶中水是质量的大小关系是(&nbsp;&nbsp;&nbsp;&nbsp;)</p></div><div><table width=\"700px\"><tbody><tr><td class=\"td25\">A.&nbsp;甲\\(  &gt;  \\)乙&nbsp;&nbsp;&nbsp;&nbsp;</td><td class=\"td25\">B.&nbsp;甲\\(=\\)乙&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td class=\"td25\">C.&nbsp;甲\\(  &lt;  \\)乙&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td class=\"tde\">D.&nbsp;无法确定</td></tr></tbody></table></div>",
+            "difficultyValue": 2,
+            "disTitleNumber": "10",
+            "imageAnswer": "https://bj.download.cycore.cn/question/241/064532fd-f261-409d-b58f-7ce345cd0522.png",
+            "relatedKnowledgeGroups": [
+                {
+                    "dispTitle": "10",
+                    "relatedKnowledges": [
+                        {
+                            "id": "020449000003006n",
+                            "name": "整式的加减"
+                        }
+                    ],
+                    "topicNumber": 10
+                }
+            ],
+            "standardAnswer": "B",
+            "topicAnalysisImgUrl": "https://bj.download.cycore.cn/question/272/832cb895-eccd-4219-bb08-605a57c05afb.png",
+            "topicId": "d5b05db5-566c-4656-ba7f-9e15ed3f50a4",
+            "topicImgUrl": "https://bj.download.cycore.cn/question/89/549df040-e6d0-45b3-9be4-2c10dd424f73.png",
+            "topicNumber": 10,
+            "topicSetId": "e66ba27d-3a16-4e4b-8c2a-eedd673cd652",
+            "topicSortShow": 10,
+            "topicSourcePaperName": "羊山中学2019-2020学年度七年级上期期末考试(数学)",
+            "topicType": "00",
+            "topicVersion": "1"
+        },
+        "avgScore": 1.4286,
+        "beSelectedStudentCount": 0,
+        "collectionSure": false,
+        "commentTopicSure": true,
+        "correctRate": 47.61905,
+        "correctStudentCount": 30,
+        "dispTitle": "10",
+        "englishCompositionTopic": false,
+        "errorStudentCount": 33,
+        "isCandidate": false,
+        "isComplex": false,
+        "isIntelligent": false,
+        "isSubjectObject": false,
+        "isTypicalTopic": false,
+        "markingPaperTopicId": "ca87a72a-5ef7-4687-b62a-5658ea6bd2ef",
+        "maxScore": 3,
+        "minScore": 0,
+        "schAvgScore": 1.6158,
+        "schMaxScore": 3,
+        "schMinScore": 0,
+        "schScoreRate": 53.860004,
+        "selectRate": 0,
+        "standardScore": 3,
+        "topicId": "d5b05db5-566c-4656-ba7f-9e15ed3f50a4",
+        "topicNumber": 10,
+        "topicScoreRate": 47.62,
+        "topicSortShow": 10
+    },
+    {
+        "analysis": {
+            "analysisHtml": "<div>\\((1)\\)【分析】<br />本题主要考查了多项式的定义，依据多项式的定义即可求解．<br />多项式是指几个单项式的和，依据定义，逐一进行判断即可求解．<br />【解答】<br />解：依据多项式的定义知：\\(①③④⑥\\)是多项式；<br />故答案为\\(①③④⑥\\)；<br />\\((2)\\)【分析】<br />本题主要考查了单项式以及同类项的知识，熟练掌握这些知识是解决本题的关键．<br />依据题意，和是单项式，说明\\(\\dfrac{2}{3}x^{2}y^{n}\\)与\\(-2x^{m}y^{3}\\)是同类项，可求出\\(m=2\\)，\\(n=3\\)，再代入求值即可求解．<br />【解答】<br />解：依据题意知，\\(\\dfrac{2}{3}x^{2}y^{n}\\)与\\(-2x^{m}y^{3}\\)是同类项，<br />\\(∴m=2\\)，\\(n=3\\)，<br />\\(∴-m^{n}=-2^{3}=-8\\)；<br />故答案为\\(-8\\)；<br />\\((3)\\)【分析】<br />本题主要考查了列代数式的知识，分清题意，列出关系式即可求解．<br />【解答】<br />解：依据题意得：<br />\\(7.5+1.2(x-3)=1.2x+3.9\\)；<br />故答案为\\(1.2x+3.9\\)；<br />\\((4)\\)【分析】<br />本题主要考查了新定义的问题以及一元一次方程的解法的知识，熟练掌握这些知识是解决本题的关键．<br />依据新定义，可得出\\(3x+2x=2-x\\)，进而解方程即可求解．<br />【解答】<br />解：依据题意得：\\(3x+2x=2-x\\)，<br />移项得，\\(3x+2x+x=2\\)，<br />即，\\(6x=2\\)，<br />解得\\(x=\\)<sub><sup>\\(\\dfrac{1}{3}\\)；<br />故答案为\\(\\dfrac{1}{3}\\)；<br /></sup></sub>\\((5)\\)【分析】<sub>\\({\\,\\!}\\)</sub>本题主要考查了数字规律的知识，根据题意，找出规律是解决本题的关键．<br />依据题意。首先找出特殊的的数，根据特殊点的下标与数值的关系找到规律，利用规律即可求解．<sub>\\({\\,\\!}\\)</sub>【解答】<br />解：根据题意分析可得：点\\(A_{1}\\)，\\(A_{2}\\)，\\(A_{3}\\)，\\(A_{4}\\)，\\(...\\)，表示的数分别为\\(-1\\)，\\(1\\)，\\(-2\\)，\\(2\\)，\\(......\\)，<br />依照上述规律，可得出结论：<br />当点的下标为奇数时，点在原点的左侧，<br />当点的下标为偶数时，点在原点的右侧，且表示的数为点的下标数除以\\(2\\)，<br />\\(∴A_{2008}=2008&divide;2=1004\\)．<br />故答案为\\(1004\\)．<br />​​​​​​​<br /><br /></div>",
+            "answerHtml": "<div>\\((1)①③④⑥\\)；<br />\\((2)-8\\)；<br />\\((3)1.2x+3.9\\)；<br />\\((4)\\)<sub><sup>\\(\\dfrac{1}{3}\\)；<br /></sup></sub>\\((5)1004\\)．\\({\\,\\!}\\)</div>",
+            "contentHtml": "<div><p>\\((1)\\) 下列式子：\\(①a+2b\\)；\\(②-2xy^{2}\\)；\\(③\\dfrac{x-y}{2}\\)；\\(④\\dfrac{x}{6}+5\\)；\\(⑤x-\\dfrac{1}{y}\\)；\\(⑥x^{2}+\\dfrac{1}{3}x\\)，其中属于多项式的有____________\\((\\)填序号\\()\\)．</p> <p>\\((2)\\)若单项式\\(\\dfrac{2}{3}x^{2}y^{n}\\)与\\(-2x^{m}y^{3}\\)的和仍为单项式，则\\(-m^{n}\\)的值为______．</p> <p>\\((3)\\)济南市出租车的收费标准为：起步价\\(7.5\\)元，超过\\(3\\)千米后每千米\\(1.2\\)元，则某人乘坐出租车行驶了\\(x(x  &gt;  3)\\)千米应付车费________元．</p> <p>\\((4)\\)对有理数\\(a\\)，\\(b\\)，规定运算\\(※\\)的意义是\\(a※b=a+2b\\)，则方程\\(3x※x=2-x\\)的解是______．</p> <p class=\"MsoPlainText\">\\((5)\\)点\\(A_{1\\;\\;}A_{2\\;\\;}A_{3...}A_{n}(n\\)为正整数\\()\\)都在数轴上，点\\(A_{1}\\)在原点\\(O\\)的左边，且\\({\\,\\!}A_{1}O=1\\) ，点\\(A_{2}\\)在点\\(A_{1}\\)的右边且 \\(A_{1}A_{2}=2\\)，点\\({\\,\\!}A_{3}\\)在\\(A_{2}\\)的左边，且\\(A_{3}A_{2}=3\\)，点\\(A_{4}\\)在\\(A_{3}\\)的右边，且\\(A_{4}A_{3}=4_{...}\\)依照上述规律点\\(A_{2008}=\\)<bdo style=\"border-bottom:1px solid\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </bdo></p></div>",
+            "difficultyValue": 3,
+            "disTitleNumber": "11",
+            "imageAnswer": "https://bj.download.cycore.cn/question/663/d677c4fd-6381-46de-85c8-9053bcccfa6c.png",
+            "relatedKnowledgeGroups": [
+                {
+                    "dispTitle": "11",
+                    "relatedKnowledges": [
+                        {
+                            "id": "020449000000001n",
+                            "name": "数轴"
+                        },
+                        {
+                            "id": "020449000002002n",
+                            "name": "代数式求值"
+                        },
+                        {
+                            "id": "020449000002006n",
+                            "name": "同类项"
+                        },
+                        {
+                            "id": "020449000002004n",
+                            "name": "规律型：数字的变化类"
+                        },
+                        {
+                            "id": "020449000003002n",
+                            "name": "单项式"
+                        },
+                        {
+                            "id": "020449000003003n",
+                            "name": "多项式"
+                        },
+                        {
+                            "id": "020449001000005n",
+                            "name": "解一元一次方程"
+                        }
+                    ],
+                    "topicNumber": 11
+                }
+            ],
+            "standardAnswer": "<div>（1）①③④⑥；<br />（2）-8；<br />（3）1.2x+3.9；<br />（4）<sub><sup><img data-latex=\"%5Cfrac%7B1%7D%7B3%7D\" data-mathml=\"&laquo;math xmlns=&uml;http://www.w3.org/1998/Math/MathML&uml;&raquo;&laquo;mfrac&raquo;&laquo;mn&raquo;1&laquo;/mn&raquo;&laquo;mn&raquo;3&laquo;/mn&raquo;&laquo;/mfrac&raquo;&laquo;/math&raquo;\" src=\"https://bj.download.cycore.cn/question/2020/1/7/19/3/ec2cc8d8-e92b-4011-b194-9b322756586a.png\" class=\"Wirisformula\" />；<br /></sup></sub>（5）1004.<sub><sup></sup></sub></div>",
+            "topicAnalysisImgUrl": "https://bj.download.cycore.cn/question/993/155954db-3d5c-45be-89df-47455343c7c0.png",
+            "topicId": "97cba6bc-65db-486b-8ad6-9fa6dcd5c3fa",
+            "topicImgUrl": "https://bj.download.cycore.cn/question/899/03ee07a4-9b67-4e09-941c-eea1f7867f2a.png",
+            "topicNumber": 11,
+            "topicSetId": "e66ba27d-3a16-4e4b-8c2a-eedd673cd652",
+            "topicSortShow": 11,
+            "topicSourcePaperName": "羊山中学2019-2020学年度七年级上期期末考试(数学)",
+            "topicType": "02",
+            "topicVersion": "1"
+        },
+        "avgScore": 7.6032,
+        "beSelectedStudentCount": 0,
+        "collectionSure": false,
+        "commentTopicSure": true,
+        "correctRate": 7.9365077,
+        "correctStudentCount": 5,
+        "dispTitle": "11",
+        "englishCompositionTopic": false,
+        "errorStudentCount": 58,
+        "isCandidate": false,
+        "isComplex": false,
+        "isIntelligent": false,
+        "isSubjectObject": false,
+        "isTypicalTopic": false,
+        "markingPaperTopicId": "ffe800f6-deee-4cd7-bd67-8d8b41daa4b2",
+        "maxScore": 15,
+        "minScore": 0,
+        "schAvgScore": 8.4536,
+        "schMaxScore": 15,
+        "schMinScore": 0,
+        "schScoreRate": 56.35733,
+        "selectRate": 0,
+        "standardScore": 15,
+        "topicId": "97cba6bc-65db-486b-8ad6-9fa6dcd5c3fa",
+        "topicNumber": 11,
+        "topicScoreRate": 50.688,
+        "topicSortShow": 11
+    },
+    {
+        "analysis": {
+            "analysisHtml": "<div>\\((1)\\)本题考查了绝对值以及有理数的混合运算 ．<br />先计算绝对值以及乘法，再加减即可；<br />\\((2)\\)本题考查了有理数的乘法运算．<br />根据有理数的乘法分配律计算即可 ．<br /><br /></div>",
+            "answerHtml": "<div>解：\\((1) |-2|-(-3)&times;(-15)\\)<br />\\(=2-45\\)<br />\\(=-43\\)；<br />\\((2)(-78)&times;(\\dfrac{2}{13}-\\dfrac{1}{3}-\\dfrac{1}{6}).\\)<br />\\((-78)&times;\\dfrac{2}{13}-(-78)&times;\\dfrac{1}{3}-(-78)&times;\\dfrac{1}{6}\\)<br />\\(=-12+26+13\\)<br />\\(=27\\)．<br /></div>",
+            "contentHtml": "<div><p class=\"MsoPlainText\">计算 </p>\\((1) |-2|-(-3)&times;(-15)\\)&nbsp;&nbsp;&nbsp; <br />\\((2)(-78)&times;(\\dfrac{2}{13}-\\dfrac{1}{3}-\\dfrac{1}{6}).\\)</div>",
+            "difficultyValue": 2,
+            "disTitleNumber": "16",
+            "imageAnswer": "https://bj.download.cycore.cn/question/485/c92ba8a9-955a-4a79-87a8-0998cb7314fa.png",
+            "relatedKnowledgeGroups": [
+                {
+                    "dispTitle": "16",
+                    "relatedKnowledges": [
+                        {
+                            "id": "020449000000003n",
+                            "name": "绝对值"
+                        },
+                        {
+                            "id": "020449000000008n",
+                            "name": "有理数的乘法"
+                        },
+                        {
+                            "id": "020449000000011n",
+                            "name": "有理数的混合运算"
+                        }
+                    ],
+                    "topicNumber": 12
+                }
+            ],
+            "standardAnswer": "<div>解：（1） |－2|－（－3）&times;（－15）<br />=2-45<br />=-43；<br />（2）（－78）&times;（<img data-latex=\"%5Cfrac%7B2%7D%7B13%7D\" data-mathml=\"&laquo;math xmlns=&uml;http://www.w3.org/1998/Math/MathML&uml; &raquo;&laquo;mfrac&raquo;&laquo;mn&raquo;2&laquo;/mn&raquo;&laquo;mn&raquo;13&laquo;/mn&raquo;&laquo;/mfrac&raquo;&laquo;/math&raquo;\" h=\"33px\" src=\"https://bj.download.cycore.cn/question/2020/1/7/16/55/317d618e-c1dd-4675-9f6f-9dd22f5601a9.png\" w=\"21px\" />－<img data-latex=\"%5Cfrac%7B1%7D%7B3%7D\" data-mathml=\"&laquo;math xmlns=&uml;http://www.w3.org/1998/Math/MathML&uml; &raquo;&laquo;mfrac&raquo;&laquo;mn&raquo;1&laquo;/mn&raquo;&laquo;mn&raquo;3&laquo;/mn&raquo;&laquo;/mfrac&raquo;&laquo;/math&raquo;\" h=\"33px\" src=\"https://bj.download.cycore.cn/question/2020/1/7/16/55/3504c3c7-01cf-4758-80c3-9f793ba5198b.png\" w=\"14px\" />－<img data-latex=\"%5Cfrac%7B1%7D%7B6%7D\" data-mathml=\"&laquo;math xmlns=&uml;http://www.w3.org/1998/Math/MathML&uml; &raquo;&laquo;mfrac&raquo;&laquo;mn&raquo;1&laquo;/mn&raquo;&laquo;mn&raquo;6&laquo;/mn&raquo;&laquo;/mfrac&raquo;&laquo;/math&raquo;\" h=\"33px\" src=\"https://bj.download.cycore.cn/question/2020/1/7/16/55/c753a2c4-3072-4ab1-a837-9f946b54522b.png\" w=\"14px\" />）.<br />（-78）&times;<img data-latex=\"%5Cfrac%7B2%7D%7B13%7D\" data-mathml=\"&laquo;math xmlns=&uml;http://www.w3.org/1998/Math/MathML&uml; &raquo;&laquo;mfrac&raquo;&laquo;mn&raquo;2&laquo;/mn&raquo;&laquo;mn&raquo;13&laquo;/mn&raquo;&laquo;/mfrac&raquo;&laquo;/math&raquo;\" h=\"33px\" src=\"https://bj.download.cycore.cn/question/2020/1/7/16/55/317d618e-c1dd-4675-9f6f-9dd22f5601a9.png\" w=\"21px\" />-（-78）&times;<img data-latex=\"%5Cfrac%7B1%7D%7B3%7D\" data-mathml=\"&laquo;math xmlns=&uml;http://www.w3.org/1998/Math/MathML&uml; &raquo;&laquo;mfrac&raquo;&laquo;mn&raquo;1&laquo;/mn&raquo;&laquo;mn&raquo;3&laquo;/mn&raquo;&laquo;/mfrac&raquo;&laquo;/math&raquo;\" h=\"33px\" src=\"https://bj.download.cycore.cn/question/2020/1/7/16/55/3504c3c7-01cf-4758-80c3-9f793ba5198b.png\" w=\"14px\" />-（-78）&times;<img data-latex=\"%5Cfrac%7B1%7D%7B6%7D\" data-mathml=\"&laquo;math xmlns=&uml;http://www.w3.org/1998/Math/MathML&uml; &raquo;&laquo;mfrac&raquo;&laquo;mn&raquo;1&laquo;/mn&raquo;&laquo;mn&raquo;6&laquo;/mn&raquo;&laquo;/mfrac&raquo;&laquo;/math&raquo;\" h=\"33px\" src=\"https://bj.download.cycore.cn/question/2020/1/7/16/55/c753a2c4-3072-4ab1-a837-9f946b54522b.png\" w=\"14px\" /><br />=-12+26+13<br />=27.<br /></div>",
+            "topicAnalysisImgUrl": "https://bj.download.cycore.cn/question/0/895713b6-4555-44ea-925f-007604dd7aaf.png",
+            "topicId": "a6888343-891b-448e-8dbf-234447d0d916",
+            "topicImgUrl": "https://bj.download.cycore.cn/question/517/da6b75de-7237-4d40-bd5a-2d8ef869c0e2.png",
+            "topicNumber": 12,
+            "topicSetId": "e66ba27d-3a16-4e4b-8c2a-eedd673cd652",
+            "topicSortShow": 12,
+            "topicSourcePaperName": "羊山中学2019-2020学年度七年级上期期末考试(数学)",
+            "topicType": "02",
+            "topicVersion": "1"
+        },
+        "avgScore": 6.2222,
+        "beSelectedStudentCount": 0,
+        "collectionSure": false,
+        "commentTopicSure": true,
+        "correctRate": 63.49206,
+        "correctStudentCount": 40,
+        "dispTitle": "16",
+        "englishCompositionTopic": false,
+        "errorStudentCount": 23,
+        "isCandidate": false,
+        "isComplex": false,
+        "isIntelligent": false,
+        "isSubjectObject": false,
+        "isTypicalTopic": false,
+        "markingPaperTopicId": "6b69acea-3d92-479c-8699-a8a967aee1d9",
+        "maxScore": 8,
+        "minScore": 0,
+        "schAvgScore": 6.3344,
+        "schMaxScore": 8,
+        "schMinScore": 0,
+        "schScoreRate": 79.18,
+        "selectRate": 0,
+        "standardScore": 8,
+        "topicId": "a6888343-891b-448e-8dbf-234447d0d916",
+        "topicNumber": 12,
+        "topicScoreRate": 77.7775,
+        "topicSortShow": 12
+    },
+    {
+        "analysis": {
+            "analysisHtml": "<div><p>本题考查一元一次方程的解法\\(.\\)按照解一元一次方程的步骤解答即可．</p><p>\\((1)\\)方程去括号，移项、合并同类项，将\\(x\\)系数化为\\(1\\)，即可求出解；&nbsp;<br />\\((2)\\)方程去分母，去括号，移项、合并同类项，将\\(x\\)系数化为\\(1\\)，即可求出解．<br /></p></div>",
+            "answerHtml": "<div><p>解：\\((1)\\)去括号得：\\(4x-3=2x-2\\)，&nbsp;</p><p>移项得：\\(4x-2x=-2+3\\)，</p><p>合并同类项得：\\(2x=1\\)，&nbsp;<br style=\"font-family: 'Microsoft YaHei', SimSun, tahoma, arial, sans-serif; ;\" />解得：\\(x= \\dfrac{1}{2} \\)；&nbsp;<br style=\"font-family: 'Microsoft YaHei', SimSun, tahoma, arial, sans-serif; ;\" />\\((2)\\)去分母得：\\(18x+2(2x-1)=18-3(x+1)\\)，</p><p>去括号得：\\(18x+4x-2=18-3x-3\\)，</p><p>移项得：\\(18x+4x+3x=18-3+2\\)，</p><p>合并同类项得：\\(25x=17\\)，</p><p>解得：\\(x=\\dfrac{17}{25}\\)．</p></div>",
+            "contentHtml": "<div><p> 解方程</p>\\((1)4x-3=2(x-1)\\)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />\\((2)3x+\\dfrac{2x-1}{3}=3-\\dfrac{x+1}{2}\\)</div>",
+            "difficultyValue": 3,
+            "disTitleNumber": "17",
+            "imageAnswer": "https://bj.download.cycore.cn/question/822/d1fc132d-9d7d-4594-824a-d9545ceaa12d.png",
+            "relatedKnowledgeGroups": [
+                {
+                    "dispTitle": "17",
+                    "relatedKnowledges": [
+                        {
+                            "id": "020449001000005n",
+                            "name": "解一元一次方程"
+                        }
+                    ],
+                    "topicNumber": 13
+                }
+            ],
+            "standardAnswer": "<div><p>解：（1）去括号得：4x-3=2x-2，&nbsp;</p><p>移项得：4x-2x=-2+3，</p><p>合并同类项得：2x=1，&nbsp;<br style=\"font-family: 'Microsoft YaHei', SimSun, tahoma, arial, sans-serif; ;\" />解得：x=<img align=\"middle\" class=\"Wirisformula\" data-latex=\"%20%5Cfrac%7B1%7D%7B2%7D \" data-mathml=\"&laquo;math xmlns=&uml;http://www.w3.org/1998/Math/MathML&uml;&raquo;&laquo;mfrac&raquo;&laquo;mn&raquo;1&laquo;/mn&raquo;&laquo;mn&raquo;2&laquo;/mn&raquo;&laquo;/mfrac&raquo;&laquo;/math&raquo;\" encode=\"encode\" data-cke-saved-src=\"https://bj.download.cycore.cn/question/2018/1/19/20/37/a8c7d980-41b2-41a0-aec5-6a301d5bfb74.png\" src=\"https://bj.download.cycore.cn/question/2018/1/19/20/37/a8c7d980-41b2-41a0-aec5-6a301d5bfb74.png\" style=\"vertical-align:middle\" />；&nbsp;<br style=\"font-family: 'Microsoft YaHei', SimSun, tahoma, arial, sans-serif; ;\" />（2）去分母得：18x+2（2x-1）=18-3（x+1）,</p><p>去括号得：18x+4x-2=18-3x-3，</p><p>移项得：18x+4x+3x=18-3+2，</p><p>合并同类项得：25x=17，</p><p>解得：x=<img src=\"https://bj.download.cycore.cn/question/2020/1/7/18/42/26da00bf-3538-4a99-ba92-bd1127532c2b.png\" align=\"middle\" class=\"Wirisformula\" data-mathml=\"&laquo;math xmlns=&uml;http://www.w3.org/1998/Math/MathML&uml;&raquo;&laquo;mfrac&raquo;&laquo;mn&raquo;17&laquo;/mn&raquo;&laquo;mn&raquo;25&laquo;/mn&raquo;&laquo;/mfrac&raquo;&laquo;/math&raquo;\" encode=\"encode\" data-latex=\"%5Cfrac%7B17%7D%7B25%7D\" />．</p></div>",
+            "topicAnalysisImgUrl": "https://bj.download.cycore.cn/question/498/806e264d-8ccb-4438-9540-ce12573777e4.png",
+            "topicId": "5ff0bc28-4743-4d45-a4b2-1faf798b8704",
+            "topicImgUrl": "https://bj.download.cycore.cn/question/39/12f38010-afd4-48fd-960d-befd0cd9d272.png",
+            "topicNumber": 13,
+            "topicSetId": "e66ba27d-3a16-4e4b-8c2a-eedd673cd652",
+            "topicSortShow": 13,
+            "topicType": "02",
+            "topicVersion": "1"
+        },
+        "avgScore": 5.9841,
+        "beSelectedStudentCount": 0,
+        "collectionSure": false,
+        "commentTopicSure": true,
+        "correctRate": 60.31746,
+        "correctStudentCount": 38,
+        "dispTitle": "17",
+        "englishCompositionTopic": false,
+        "errorStudentCount": 25,
+        "isCandidate": false,
+        "isComplex": false,
+        "isIntelligent": false,
+        "isSubjectObject": false,
+        "isTypicalTopic": false,
+        "markingPaperTopicId": "36c86baa-eb6a-4631-a0b8-1a19c22374db",
+        "maxScore": 8,
+        "minScore": 0,
+        "schAvgScore": 6.3175,
+        "schMaxScore": 8,
+        "schMinScore": 0,
+        "schScoreRate": 78.96875,
+        "selectRate": 0,
+        "standardScore": 8,
+        "topicId": "5ff0bc28-4743-4d45-a4b2-1faf798b8704",
+        "topicNumber": 13,
+        "topicScoreRate": 74.80125,
+        "topicSortShow": 13
+    },
+    {
+        "analysis": {
+            "analysisHtml": "<div><p>本题主要考查了两点间的距离\\(.\\)利用中点性质转化线段之间的倍分关系是解题的关键，在不同的情况下灵活选用它的不同表示方法，有利于解题的简洁性\\(.\\)同时，灵活运用线段的和、差、倍、分转化线段之间的数量关系也是十分关键的一点\\(.\\)由已知\\(B\\)，\\(C\\)两点把线段\\(AD\\)分成\\(2\\)：\\(5\\)：\\(3\\)三部分，所以设\\(AB=2x cm\\)，\\(BC=5x cm\\)，\\(CD=3x cm\\)，根据已知分别用\\(x\\)表示出\\(AD\\)，\\(MD\\)，从而得出\\(BM\\)，继而求出\\(x\\)，则求出\\(CM\\)和\\(AD\\)的长．</p></div>",
+            "answerHtml": "<div><p>解：设\\(AB=2x cm\\)，\\(BC=5x cm\\)，\\(CD=3x cm\\)，<br />所以\\(AD=AB+BC+CD=10x cm\\)．<br />因为\\(M\\)是\\(AD\\)的中点，<br />所以\\(AM=MD= \\dfrac{1}{2}AD=5x cm\\)，<br />所以\\(BM=AM-AB=5x-2x=3x cm\\)．<br />因为\\(BM=6 cm\\)，<br />所以\\(3x=6\\)，\\(x=2\\)，<br />故C\\(M=MD-CD=5x-3x=2x=2&times;2=4 cm\\)，<br />\\(AD=10x=10&times;2=20 cm\\)．<br />答：\\(CM\\)和\\(AD\\)的长分别为\\(4cm\\)，\\(20cm\\)．</p></div>",
+            "contentHtml": "<div><p>已知：如图，\\(B\\)，\\(C\\)两点把线段\\(AD\\)分成\\(2:5:3\\)三部分，点\\(M\\)为\\(AD\\)的中点，\\(BM=6 cm\\)，求\\(CM\\)和\\(AD\\)的长．</p> <p><img class=\"imgClass\" h=\"49\" src=\"https://bj.download.cycore.cn/question/2019/12/24/9/42/d191b0f7-b216-4384-a4c5-0f558887c075.png\" w=\"435\" /></p></div>",
+            "difficultyValue": 3,
+            "disTitleNumber": "18",
+            "imageAnswer": "https://bj.download.cycore.cn/question/646/2eefa1d9-cadc-4959-8a02-0a9458a91fb6.png",
+            "relatedKnowledgeGroups": [
+                {
+                    "dispTitle": "18",
+                    "relatedKnowledges": [
+                        {
+                            "id": "020449001000006n",
+                            "name": "一元一次方程的应用"
+                        },
+                        {
+                            "id": "020449003000007n",
+                            "name": "两点间的距离"
+                        },
+                        {
+                            "id": "020449003000029n",
+                            "name": "线段的和差"
+                        }
+                    ],
+                    "topicNumber": 14
+                }
+            ],
+            "standardAnswer": "<div><p>解：设AB=2x cm，BC=5x cm，CD=3x cm，<br />所以AD=AB+BC+CD=10x cm.<br />因为M是AD的中点，<br />所以<img align=\"middle\" class=\"Wirisformula\" data-latex=\"AM%3DMD%3D%20%5Cfrac%7B1%7D%7B2%7DAD%3D5x \" data-mathml=\"&laquo;math xmlns=&uml;http://www.w3.org/1998/Math/MathML&uml;&raquo;&laquo;mi&raquo;A&laquo;/mi&raquo;&laquo;mi&raquo;M&laquo;/mi&raquo;&laquo;mo&raquo;=&laquo;/mo&raquo;&laquo;mi&raquo;M&laquo;/mi&raquo;&laquo;mi&raquo;D&laquo;/mi&raquo;&laquo;mo&raquo;=&laquo;/mo&raquo;&laquo;mfrac&raquo;&laquo;mn&raquo;1&laquo;/mn&raquo;&laquo;mn&raquo;2&laquo;/mn&raquo;&laquo;/mfrac&raquo;&laquo;mi&raquo;A&laquo;/mi&raquo;&laquo;mi&raquo;D&laquo;/mi&raquo;&laquo;mo&raquo;=&laquo;/mo&raquo;&laquo;mn&raquo;5&laquo;/mn&raquo;&laquo;mi&raquo;x&laquo;/mi&raquo;&laquo;/math&raquo;\" encode=\"encode\" data-cke-saved-src=\"https://bj.download.cycore.cn/question/2017/12/31/11/51/46c9205c-f1f4-4add-9dc2-72048bba1f35.png\" src=\"https://bj.download.cycore.cn/question/2017/12/31/11/51/46c9205c-f1f4-4add-9dc2-72048bba1f35.png\" />cm，<br />所以BM=AM-AB=5x-2x=3x cm.<br />因为BM=6 cm，<br />所以3x=6，x=2，<br />故CM=MD-CD=5x-3x=2x=2&times;2=4 cm，<br />AD=10x=10&times;2=20 cm.<br />​答：CM和AD的长分别为4cm，20cm.</p></div>",
+            "topicAnalysisImgUrl": "https://bj.download.cycore.cn/question/911/68a03dc0-4255-484e-be0e-f641a6ff3d6e.png",
+            "topicId": "cf305974-187e-4cd8-afb5-71b5bc439820",
+            "topicImgUrl": "https://bj.download.cycore.cn/question/887/985b7c42-3348-4844-978c-6d1e521be8aa.png",
+            "topicNumber": 14,
+            "topicSetId": "e66ba27d-3a16-4e4b-8c2a-eedd673cd652",
+            "topicSortShow": 14,
+            "topicSourcePaperName": "羊山中学2019-2020学年度七年级上期期末考试(数学)",
+            "topicType": "02",
+            "topicVersion": "3"
+        },
+        "avgScore": 5.2698,
+        "beSelectedStudentCount": 0,
+        "collectionSure": false,
+        "commentTopicSure": true,
+        "correctRate": 41.26984,
+        "correctStudentCount": 26,
+        "dispTitle": "18",
+        "englishCompositionTopic": false,
+        "errorStudentCount": 37,
+        "isCandidate": false,
+        "isComplex": false,
+        "isIntelligent": false,
+        "isSubjectObject": false,
+        "isTypicalTopic": false,
+        "markingPaperTopicId": "97ae6bbd-0af1-4b11-b770-0e8e6c4d9c97",
+        "maxScore": 9,
+        "minScore": 0,
+        "schAvgScore": 5.307,
+        "schMaxScore": 9,
+        "schMinScore": 0,
+        "schScoreRate": 58.966667,
+        "selectRate": 0,
+        "standardScore": 9,
+        "topicId": "cf305974-187e-4cd8-afb5-71b5bc439820",
+        "topicNumber": 14,
+        "topicScoreRate": 58.553337,
+        "topicSortShow": 14
+    },
+    {
+        "analysis": {
+            "analysisHtml": "<div>本题主要考查了整式的加减以及数轴和绝对值的性质，正确把握运算法则是解题关键．<br />根据数轴上点的位置判断出绝对值里边式子的正负，利用绝对值的代数意义化简，去括号合并即可得到结果．</div>",
+            "answerHtml": "<div>解：根据数轴可得\\(c  &lt;  b  &lt;  0  &lt;  a\\)，\\(|c|  &gt;  |a|  &gt;  |b|\\)，<br />\\(∴a-c  &gt;  0\\)，\\(b-a  &lt;  0\\)，\\(a+c  &lt;  0\\)，<br />\\(∴\\)原式\\(=a-c+b+(b-a)+a+c\\)<br />\\(=a-c+b+b-a+a+c\\)<br />\\(=a+2b\\)<br /></div>",
+            "contentHtml": "<div><p class=\"MsoPlainText\">有理数\\(a\\)，\\(b\\)，\\(c\\)在数轴上的位置如图所示，化简\\(\\left| {a-c} \\right|{-}\\left| {b} \\right|-\\left| b-a \\right|-\\left| a+c \\right|\\)</p> <p class=\"MsoPlainText\"><img bigger=\"https://bj.download.cycore.cn/question/2020/1/7/16/55/bf4e6ea3-741d-4e6a-8cf1-cc8b8acbfa70.png\" class=\"imgClass\" h=\"18px\" height=\"18\" src=\"https://bj.download.cycore.cn/question/2020/1/7/16/55/7e087273-2a9d-4ea7-bdb2-58364d874a2b.png\" style=\"vertical-align:middle;\" w=\"208px\" width=\"208\" /></p></div>",
+            "difficultyValue": 3,
+            "disTitleNumber": "19",
+            "imageAnswer": "https://bj.download.cycore.cn/question/485/89a1536f-f23c-4b5d-b31a-1796f16516c7.png",
+            "relatedKnowledgeGroups": [
+                {
+                    "dispTitle": "19",
+                    "relatedKnowledges": [
+                        {
+                            "id": "020449000000001n",
+                            "name": "数轴"
+                        },
+                        {
+                            "id": "020449000000003n",
+                            "name": "绝对值"
+                        },
+                        {
+                            "id": "020449000003006n",
+                            "name": "整式的加减"
+                        }
+                    ],
+                    "topicNumber": 15
+                }
+            ],
+            "standardAnswer": "<div>解：根据数轴可得c＜b＜0＜a，|c|＞|a|＞|b|，<br />∴a-c＞0，b-a＜0，a+c＜0，<br />∴原式=a-c+b+（b-a）+a+c<br />=a-c+b+b-a+a+c<br />​​​​​​​=a+2b<br /></div>",
+            "topicAnalysisImgUrl": "https://bj.download.cycore.cn/question/15/05321eb6-d2a9-48ec-b1ac-d06c433e5fca.png",
+            "topicId": "ac839aad-56aa-4e10-b5cd-c542db8d1099",
+            "topicImgUrl": "https://bj.download.cycore.cn/question/519/e55f79b8-226b-4f67-abc0-9bb36b6e0c74.png",
+            "topicNumber": 15,
+            "topicSetId": "e66ba27d-3a16-4e4b-8c2a-eedd673cd652",
+            "topicSortShow": 15,
+            "topicSourcePaperName": "羊山中学2019-2020学年度七年级上期期末考试(数学)",
+            "topicType": "02",
+            "topicVersion": "1"
+        },
+        "avgScore": 4.0317,
+        "beSelectedStudentCount": 0,
+        "collectionSure": false,
+        "commentTopicSure": true,
+        "correctRate": 36.50794,
+        "correctStudentCount": 23,
+        "dispTitle": "19",
+        "englishCompositionTopic": false,
+        "errorStudentCount": 40,
+        "isCandidate": false,
+        "isComplex": false,
+        "isIntelligent": false,
+        "isSubjectObject": false,
+        "isTypicalTopic": false,
+        "markingPaperTopicId": "887ced12-5cef-4e43-a996-35ade52a6b30",
+        "maxScore": 9,
+        "minScore": 0,
+        "schAvgScore": 4.7437,
+        "schMaxScore": 9,
+        "schMinScore": 0,
+        "schScoreRate": 52.70778,
+        "selectRate": 0,
+        "standardScore": 9,
+        "topicId": "ac839aad-56aa-4e10-b5cd-c542db8d1099",
+        "topicNumber": 15,
+        "topicScoreRate": 44.79667,
+        "topicSortShow": 15
+    },
+    {
+        "analysis": {
+            "analysisHtml": "<div> <p>本题考查整式的加减，求代数式的值\\(.\\)原式去括号合并得到最简结果，代入\\(x\\)，\\(y\\)的值计算即可求出值．</p> </div>",
+            "answerHtml": "<div><p>解：\\(∵\\)原式\\(=3x^{2}-6xy-[3x^{2}-2y+2xy+2y]\\)</p> <p>\\(=3x^{2}-6xy-3x^{2}-2xy\\)</p> <p>\\(=-8xy\\)，</p> <p>当\\(x=- \\dfrac{1}{2} \\)，\\(y=-3\\)时，原式\\(=(-8)&times;(- \\dfrac{1}{2} )&times;(-3)=-12\\)．</p></div>",
+            "contentHtml": "<div>先化简，再求值：\\(3(x^{2}-2xy)-[3x^{2}-2y+2(xy+y)]\\)，其中\\(x=- \\dfrac{1}{2} \\)，\\(y=-3\\)．</div>",
+            "difficultyValue": 2,
+            "disTitleNumber": "20",
+            "imageAnswer": "https://bj.download.cycore.cn/question/837/91791fbb-646f-41da-a379-c0e52f2af3e7.png",
+            "relatedKnowledgeGroups": [
+                {
+                    "dispTitle": "20",
+                    "relatedKnowledges": [
+                        {
+                            "id": "020449000003022n",
+                            "name": "整式的加减-化简求值"
+                        }
+                    ],
+                    "topicNumber": 16
+                }
+            ],
+            "standardAnswer": "<div><p>解：∵原式=3x<sup>2</sup>-6xy-[3x<sup>2</sup>-2y+2xy+2y]</p> \n<p>​=3x<sup>2</sup>-6xy-3x<sup>2</sup>-2xy</p> \n<p>​=-8xy，</p> \n<p>当x=<img class=\"Wirisformula\" data-latex=\"-%20%5Cfrac%7B1%7D%7B2%7D \" data-mathml=\"&laquo;math xmlns=&uml;http://www.w3.org/1998/Math/MathML&uml;&raquo;&laquo;mo&raquo;-&laquo;/mo&raquo;&laquo;mfrac&raquo;&laquo;mn&raquo;1&laquo;/mn&raquo;&laquo;mn&raquo;2&laquo;/mn&raquo;&laquo;/mfrac&raquo;&laquo;/math&raquo;\" encode=\"encode\" data-cke-saved-src=\"http://paper.cycore.cn/img/question/addQuestion/944/6f5d1690-7a61-4b74-bdf2-b933d11fcb2b.png\" src=\"https://bj.download.cycore.cn/question/addQuestion/260/f597b568-37e7-4262-80da-4b9a8642ac7c.png\" style=\"vertical-align:middle\" align=\"middle\" />，y=-3时，原式=（-8）&times;（-<img class=\"Wirisformula\" data-latex=\"%20%5Cfrac%7B1%7D%7B2%7D \" data-mathml=\"&laquo;math xmlns=&uml;http://www.w3.org/1998/Math/MathML&uml;&raquo;&laquo;mfrac&raquo;&laquo;mn&raquo;1&laquo;/mn&raquo;&laquo;mn&raquo;2&laquo;/mn&raquo;&laquo;/mfrac&raquo;&laquo;/math&raquo;\" encode=\"encode\" data-cke-saved-src=\"http://paper.cycore.cn/img/question/addQuestion/850/444339c0-0fe9-451b-a422-4ec431310f97.png\" src=\"https://bj.download.cycore.cn/question/addQuestion/43/749a3772-f0c4-41c9-80d9-666116f8ee58.png\" style=\"vertical-align:middle\" align=\"middle\" />）&times;（-3）＝-12.</p></div>",
+            "topicAnalysisImgUrl": "https://bj.download.cycore.cn/question/41/c0f4472d-df58-4edc-a0d3-59f8665beafd.png",
+            "topicId": "f684f272-5bdc-4362-929b-55f3b94ad6c2",
+            "topicImgUrl": "https://bj.download.cycore.cn/question/51/78736039-f90e-4b45-bf72-7da19617ba97.png",
+            "topicNumber": 16,
+            "topicSetId": "e66ba27d-3a16-4e4b-8c2a-eedd673cd652",
+            "topicSortShow": 16,
+            "topicSourcePaperName": "羊山中学2019-2020学年度七年级上期期末考试(数学)",
+            "topicType": "02",
+            "topicVersion": "11"
+        },
+        "avgScore": 6.7619,
+        "beSelectedStudentCount": 0,
+        "collectionSure": false,
+        "commentTopicSure": true,
+        "correctRate": 65.07937,
+        "correctStudentCount": 41,
+        "dispTitle": "20",
+        "englishCompositionTopic": false,
+        "errorStudentCount": 22,
+        "isCandidate": false,
+        "isComplex": false,
+        "isIntelligent": false,
+        "isSubjectObject": false,
+        "isTypicalTopic": false,
+        "markingPaperTopicId": "a44deb38-88b8-48af-b14e-03d016a06a07",
+        "maxScore": 10,
+        "minScore": 0,
+        "schAvgScore": 7.5034,
+        "schMaxScore": 10,
+        "schMinScore": 0,
+        "schScoreRate": 75.034,
+        "selectRate": 0,
+        "standardScore": 10,
+        "topicId": "f684f272-5bdc-4362-929b-55f3b94ad6c2",
+        "topicNumber": 16,
+        "topicScoreRate": 67.619,
+        "topicSortShow": 16
+    },
+    {
+        "analysis": {
+            "analysisHtml": "<div><p>本题考查的一元一次方程的应用，等价关系是：两种不同情况下的成本价相等，为保证不亏本，使得标价\\(&times;\\)所打折数\\(=\\)成本价．<br /></p><p>\\((1)\\)设每件服装的标价是\\(x\\)元，则分别表示出售价，再根据成本不变建立方程求出其解即可；&nbsp;</p>\\((2)\\)设打\\(y\\)折就可以不亏本，根据标价和成本价之间的关系，列出方程，求出方程的解即可．</div>",
+            "answerHtml": "<div><p>解：\\((1)\\)设每件服装的标价是\\(x\\)元，依题意，得&nbsp;</p><p>\\(0.5x+20=0.8x-40\\)，&nbsp;<br style=\"font-family: &quot;Microsoft YaHei&quot;, SimSun, tahoma, arial, sans-serif;\" />解得：\\(x=200.\\)&nbsp;<br style=\"font-family: &quot;Microsoft YaHei&quot;, SimSun, tahoma, arial, sans-serif;\" />答：每件服装的标价是\\(200\\)元；&nbsp;<br style=\"font-family: &quot;Microsoft YaHei&quot;, SimSun, tahoma, arial, sans-serif;\" />\\((2)\\)设打\\(y\\)折就可以不亏本，由题意，得&nbsp;<br style=\"font-family: &quot;Microsoft YaHei&quot;, SimSun, tahoma, arial, sans-serif;\" />\\(200&times;0.1y=120(1+50％)\\)，&nbsp;<br style=\"font-family: &quot;Microsoft YaHei&quot;, SimSun, tahoma, arial, sans-serif;\" />解得：\\(y=9\\)，&nbsp;<br style=\"font-family: &quot;Microsoft YaHei&quot;, SimSun, tahoma, arial, sans-serif;\" />答：为保证不亏本，最多能打九折．</p></div>",
+            "contentHtml": "<div><p> 一家商店换季打折销售，如果每件按标价的\\(5\\)折出售，将亏本\\(20\\)元，如果按标价的\\(8\\)折出售，将盈利\\(40\\)元</p> <p class=\"MsoPlainText\">\\(①\\)求每件标价多少元？</p> <p class=\"MsoPlainText\">\\(②\\)打几折销售恰好利润为\\(50\\%\\)</p></div>",
+            "difficultyValue": 4,
+            "disTitleNumber": "21",
+            "imageAnswer": "https://bj.download.cycore.cn/question/831/1bbc5c88-598a-4ebf-9cd1-f5670e26054a.png",
+            "relatedKnowledgeGroups": [
+                {
+                    "dispTitle": "21",
+                    "relatedKnowledges": [
+                        {
+                            "id": "020449001000006n",
+                            "name": "一元一次方程的应用"
+                        }
+                    ],
+                    "topicNumber": 17
+                }
+            ],
+            "standardAnswer": "<div><p>解：（1）设每件服装的标价是x元，依题意，得&nbsp;</p><p>0.5x+20=0.8x-40，&nbsp;<br style=\"font-family: &quot;Microsoft YaHei&quot;, SimSun, tahoma, arial, sans-serif;\" />解得：x=200．&nbsp;<br style=\"font-family: &quot;Microsoft YaHei&quot;, SimSun, tahoma, arial, sans-serif;\" />答：每件服装的标价是200元；&nbsp;<br style=\"font-family: &quot;Microsoft YaHei&quot;, SimSun, tahoma, arial, sans-serif;\" />（2）设打y折就可以不亏本，由题意，得&nbsp;<br style=\"font-family: &quot;Microsoft YaHei&quot;, SimSun, tahoma, arial, sans-serif;\" />200&times;0.1y=120（1+50％），&nbsp;<br style=\"font-family: &quot;Microsoft YaHei&quot;, SimSun, tahoma, arial, sans-serif;\" />解得：y=9，&nbsp;<br style=\"font-family: &quot;Microsoft YaHei&quot;, SimSun, tahoma, arial, sans-serif;\" />答：为保证不亏本，最多能打九折．</p></div>",
+            "topicAnalysisImgUrl": "https://bj.download.cycore.cn/question/840/84bf4494-deca-4e28-8799-8ee87658187d.png",
+            "topicId": "78c43eda-b4da-4f04-b98b-0f80b22baf8b",
+            "topicImgUrl": "https://bj.download.cycore.cn/question/279/af271823-7990-4af9-8c26-ad22f2b7ce8d.png",
+            "topicNumber": 17,
+            "topicSetId": "e66ba27d-3a16-4e4b-8c2a-eedd673cd652",
+            "topicSortShow": 17,
+            "topicSourcePaperName": "羊山中学2019-2020学年度七年级上期期末考试(数学)",
+            "topicType": "02",
+            "topicVersion": "1"
+        },
+        "avgScore": 5.4444,
+        "beSelectedStudentCount": 0,
+        "collectionSure": false,
+        "commentTopicSure": true,
+        "correctRate": 34.920635,
+        "correctStudentCount": 22,
+        "dispTitle": "21",
+        "englishCompositionTopic": false,
+        "errorStudentCount": 41,
+        "isCandidate": false,
+        "isComplex": false,
+        "isIntelligent": false,
+        "isSubjectObject": false,
+        "isTypicalTopic": false,
+        "markingPaperTopicId": "0336d7c3-ca20-4de4-8773-c46140927924",
+        "maxScore": 10,
+        "minScore": 0,
+        "schAvgScore": 5.8177,
+        "schMaxScore": 10,
+        "schMinScore": 0,
+        "schScoreRate": 58.177002,
+        "selectRate": 0,
+        "standardScore": 10,
+        "topicId": "78c43eda-b4da-4f04-b98b-0f80b22baf8b",
+        "topicNumber": 17,
+        "topicScoreRate": 54.443996,
+        "topicSortShow": 17
+    },
+    {
+        "analysis": {
+            "analysisHtml": "<div><br />首先根据\\(OD\\)平分\\(∠AOC\\)，应用角平分线的性质，以及\\(∠BOC=2∠AOB\\)，推出：\\(∠AOB=2∠DOB\\)；然后根据\\(∠BOD=14^{\\circ}\\)，求出\\(∠AOC\\)的度数是多少即可．<br />此题主要考查了角平分线的性质和应用，以及角的计算，要熟练掌握．</div>",
+            "answerHtml": "<div>解：\\(∵OD\\)平分\\(∠AOC\\)， <br />\\(∴∠AOD=∠COD\\)， <br />又\\(∵∠AOD=∠AOB+∠DOB\\)， <br />\\(∴∠COD=∠AOB+∠DOB\\)， <br />又\\(∵∠BOC=∠COD+∠BOD\\)，\\(∠BOC=2∠AOB\\)， <br />\\(∴∠COD+∠DOB=2∠AOB\\)， <br />\\(∴∠AOB+∠DOB+∠DOB=2∠AOB\\)， <br />即\\(∠AOB=2∠DOB\\)， <br />又\\(∵∠BOD=14^{\\circ}\\)， <br />\\(∴∠AOB=2∠DOB=28^{\\circ}\\)， <br />\\(∴∠BOC=2∠AOB=56^{\\circ}\\)， <br />\\(∴∠AOC=∠BOC+∠AOB=56^{\\circ}+28^{\\circ}=84^{\\circ}\\)．</div>",
+            "contentHtml": "<div><img alt=\"\" src=\"https://bj.download.cycore.cn/question/2018/9/8/9/47/f523007d-d941-45ef-9643-6a14787e172c.png\" style=\"vertical-align:middle;FLOAT:right\" w=\"120px\" h=\"108px\" />如图，已知\\(∠BOC=2∠AOB\\)，\\(OD\\)平分\\(∠AOC\\)，\\(∠BOD=14^{\\circ}\\)，求\\(∠AOC\\)的度数．</div>",
+            "difficultyValue": 5,
+            "disTitleNumber": "22",
+            "imageAnswer": "https://bj.download.cycore.cn/question/18/3aa8b165-c9aa-4b44-899a-884a07edf842.png",
+            "relatedKnowledgeGroups": [
+                {
+                    "dispTitle": "22",
+                    "relatedKnowledges": [
+                        {
+                            "id": "020449003000011n",
+                            "name": "角的计算"
+                        },
+                        {
+                            "id": "020449003000015n",
+                            "name": "角平分线的定义"
+                        }
+                    ],
+                    "topicNumber": 18
+                }
+            ],
+            "standardAnswer": "<div>解：∵OD平分∠AOC，\n<br />∴∠AOD=∠COD，\n<br />又∵∠AOD=∠AOB+∠DOB，\n<br />∴∠COD=∠AOB+∠DOB，\n<br />又∵∠BOC=∠COD+∠BOD，∠BOC=2∠AOB，\n<br />∴∠COD+∠DOB=2∠AOB，\n<br />∴∠AOB+∠DOB+∠DOB=2∠AOB，\n<br />即∠AOB=2∠DOB，\n<br />又∵∠BOD=14&deg;，\n<br />∴∠AOB=2∠DOB=28&deg;，\n<br />∴∠BOC=2∠AOB=56&deg;，\n<br />∴∠AOC=∠BOC+∠AOB=56&deg;+28&deg;=84&deg;．</div>",
+            "topicAnalysisImgUrl": "https://bj.download.cycore.cn/question/539/dc7d28f8-d0ee-4818-8492-259fc415e474.png",
+            "topicId": "ddcd3c71-6146-4bc2-a1d2-68c0ad1c82c2",
+            "topicImgUrl": "https://bj.download.cycore.cn/question/363/0494127c-aa4a-4325-a6d3-c8c408197919.png",
+            "topicNumber": 18,
+            "topicSetId": "e66ba27d-3a16-4e4b-8c2a-eedd673cd652",
+            "topicSortShow": 18,
+            "topicSourcePaperName": "羊山中学2019-2020学年度七年级上期期末考试(数学)",
+            "topicType": "02",
+            "topicVersion": "212"
+        },
+        "avgScore": 6.0952,
+        "beSelectedStudentCount": 0,
+        "collectionSure": false,
+        "commentTopicSure": true,
+        "correctRate": 47.61905,
+        "correctStudentCount": 30,
+        "dispTitle": "22",
+        "englishCompositionTopic": false,
+        "errorStudentCount": 33,
+        "isCandidate": false,
+        "isComplex": false,
+        "isIntelligent": false,
+        "isSubjectObject": false,
+        "isTypicalTopic": false,
+        "markingPaperTopicId": "634b870a-c520-4821-b295-5df6440ad48e",
+        "maxScore": 10,
+        "minScore": 0,
+        "schAvgScore": 5.9063,
+        "schMaxScore": 10,
+        "schMinScore": 0,
+        "schScoreRate": 59.063,
+        "selectRate": 0,
+        "standardScore": 10,
+        "topicId": "ddcd3c71-6146-4bc2-a1d2-68c0ad1c82c2",
+        "topicNumber": 18,
+        "topicScoreRate": 60.952003,
+        "topicSortShow": 18
+    },
+    {
+        "analysis": {
+            "analysisHtml": "<div>【分析】<br />本题综合考查了旋转的性质，角的计算，角平分线等内容，理解题意理清思路进行分类讨论以防漏解是解决本题的关键．<br />\\((1)\\)根据已知条件计算即可；<br />\\((2)\\)根据\\((1)\\)的结论和角平分线定义计算即可；<br />\\((3)\\)利用平角的定义，结合已知条件：\\(∠AOC\\)：\\(∠BOC=1\\)：\\(2\\)，求得\\(∠AOC=60^{\\circ}\\)，然后由直角的性质、图中角与角的数量关系推知\\(∠AOM-∠NOC=30^{\\circ}\\)；<br />\\((4)\\)需要分类讨论：当\\(OM\\)平分\\(∠BOC\\)时，旋转角是\\(60^{\\circ}\\)；当\\(ON\\)平分\\(∠AOC\\)时，旋转角为\\(240^{\\circ}\\)，进而得出答案．<br />【解答】<br />解：\\((1)∵∠AOC\\)：\\(∠BOC=1\\)：\\(2\\)，<br />\\(∠AOC+∠BOC=180^{\\circ}\\)，<br />\\(∴∠AOC+2∠AOC=180^{\\circ}\\)，<br />\\(∴∠AOC=60^{\\circ}\\)，<br />\\(∠BOC=180^{\\circ}-60^{\\circ}=120^{\\circ}\\)，<br />故答案为\\(120^{\\circ}\\)；\\(60^{\\circ}\\)；<br />\\((2)\\)由\\((1)\\)知\\(∠BOC=120^{\\circ}\\)，<br />当\\(OM\\)平分\\(∠BOC\\)时，<br />\\(∠BOM=\\dfrac{1}{2}∠BOC=60^{\\circ}\\)，<br />\\(∴\\)此时三角板旋转的角度\\(α\\)为\\(60^{\\circ}\\)，<br />故答案为\\(60^{\\circ}\\)；<br />\\((3)\\)见答案；<br />\\((4)\\)见答案．<br /></div>",
+            "answerHtml": "<div>解：\\((1)120^{\\circ}\\)；\\(60^{\\circ}\\)；<br />\\((2)60^{\\circ}\\)；<br />\\((3)\\)如图\\(3\\)：\\(∠AOM-∠NOC=30^{\\circ}\\)，理由如下：<br />\\(∵∠AOC+∠BOC=180^{\\circ}\\)，<br />\\(∠AOC\\)：\\(∠BOC=1\\)：\\(2\\)，<br />\\(∴∠AOC+2∠AOC=180^{\\circ}\\)，<br />\\(∴∠AOC=60^{\\circ}\\)，<br />\\(∴∠AON+CON=60^{\\circ}\\)，\\(①\\)<br />\\(∵∠MON=90^{\\circ}\\)，<br />\\(∴∠AOM+∠AON=90^{\\circ}\\)，\\(②\\)<br />\\(②-①\\)，得\\(∠AOM-∠CON=30^{\\circ}\\)．<br />\\((4)\\)<img alt=\"\" src=\"https://bj.download.cycore.cn/question/2019/12/31/4/22/4fb86e5d-8506-4abc-81c7-d48e1457717b.png\" w=\"348px\" h=\"151px\" /><br />如图\\(4\\)，当\\(OM\\)平分\\(∠BOC\\)时，\\(ON\\)所在直线平分\\(∠AOC\\)，<br />\\(∠BOM=60^{\\circ}\\)，<br />\\(∴\\)三角板绕点\\(O\\)逆时针旋转\\(60^{\\circ}\\)，<br />此时\\(t=60&divide;30=2(\\)秒\\()\\)；<br />如图\\(5\\)，当\\(ON\\)平分\\(∠AOC\\)时，\\(OM\\)所在直线平分\\(∠BOC\\)，<br />\\(∠CON=30^{\\circ}\\)，<br />\\(∴\\)三角板绕点\\(O\\)逆时针旋转\\(240^{\\circ}\\)，<br />此时\\(t=240&divide;30=8(\\)秒\\()\\)．<br />当\\(om\\)旋转\\(150\\)度时也符合要求，此时旋转了\\(5\\)秒，<br />\\(∴\\)旋转时间\\(t\\)为\\(2\\)秒或\\(5\\)秒或\\(8\\)秒．<br />答：旋转时间为\\(2\\)秒或\\(5\\)秒或\\(8\\)秒．<br /></div>",
+            "contentHtml": "<div>如图\\(1\\)，点\\(O\\)为直线\\(AB\\)上一点，过\\(O\\)点作射线\\(OC\\)，使\\(∠AOC\\)：\\(∠BOC=1\\)：\\(2\\)，将一直角三角板的直角顶点放在点\\(O\\)处，一边\\(OM\\)在射线\\(OB\\)上，另一边\\(ON\\)在直线\\(AB\\)的下方．<br /><img class=\"imgClass\" h=\"136px\" height=\"136\" src=\"https://bj.download.cycore.cn/question/2020/1/7/16/55/ee8a81ac-39b1-42e2-8a41-7067c682334e.png\" w=\"455px\" width=\"455\" /> <br /> <p>\\((1)∠BOC=\\)_________&nbsp;&nbsp;&nbsp;\\(∠AOC=\\)__________&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> <p>\\((2)\\)将图\\(1\\)中的三角板绕点\\(O\\)按逆时针方向旋转至图\\(2\\)，使得\\(OM\\)平分\\(∠BOC\\)，此时三角板旋转的角度\\(α\\)为___度\\(( 0  &lt;  α  &lt;  180^{\\circ})\\)；</p> <p>\\((3)\\)继续将图\\(2\\)中的三角板绕点\\(O\\)按逆时针方向旋转至图\\(3\\)的位置，使得\\(ON\\)在\\(∠AOC\\)的内部\\(.\\)试探究\\(∠AOM\\)与\\(∠NOC\\)之间满足什么等量关系，并说明理由；</p> <p>\\((4)\\)在上述直角三角板从图\\(1\\)开始绕点\\(O\\)按\\(30^{\\circ}\\)每秒的速度逆时针旋转\\(270^{\\circ}\\)的过程中，是否存在\\(OM\\)所在直线平分\\(∠BOC\\)和\\(∠AOC\\)中的一个角，\\(ON\\)所在直线平分另一个角？若存在，直接写出旋转时间\\(t\\)，若不存在，说明理由．</p></div>",
+            "difficultyValue": 4,
+            "disTitleNumber": "23",
+            "imageAnswer": "https://bj.download.cycore.cn/question/605/ab88d917-f64e-46c6-a541-74fa98c1c74b.png",
+            "relatedKnowledgeGroups": [
+                {
+                    "dispTitle": "23",
+                    "relatedKnowledges": [
+                        {
+                            "id": "020449003000011n",
+                            "name": "角的计算"
+                        },
+                        {
+                            "id": "020449003000015n",
+                            "name": "角平分线的定义"
+                        },
+                        {
+                            "id": "020449004001000n",
+                            "name": "旋转的性质"
+                        }
+                    ],
+                    "topicNumber": 19
+                }
+            ],
+            "standardAnswer": "<div>解：（1）<img src=\"https://bj.download.cycore.cn/question/2020/1/7/19/20/5e4d1424-44af-43f5-8816-f0bfaba7bc84.png\" align=\"middle\" class=\"Wirisformula\" data-mathml=\"&laquo;math xmlns=&uml;http://www.w3.org/1998/Math/MathML&uml;&raquo;&laquo;mn&raquo;120&laquo;/mn&raquo;&laquo;mo&raquo;&sect;#176;&laquo;/mo&raquo;&laquo;/math&raquo;\" encode=\"encode\" data-latex=\"120%C2%B0\" />；<img src=\"https://bj.download.cycore.cn/question/2020/1/7/19/20/56fc8ff6-944d-4164-9953-9513f1d66f5c.png\" align=\"middle\" class=\"Wirisformula\" data-mathml=\"&laquo;math xmlns=&uml;http://www.w3.org/1998/Math/MathML&uml;&raquo;&laquo;mn&raquo;60&laquo;/mn&raquo;&laquo;mo&raquo;&sect;#176;&laquo;/mo&raquo;&laquo;/math&raquo;\" encode=\"encode\" data-latex=\"60%C2%B0\" />；<br />（2）<img src=\"https://bj.download.cycore.cn/question/2020/1/7/19/20/03ad967e-b72e-4151-a067-1a6716c5d03b.png\" align=\"middle\" class=\"Wirisformula\" data-mathml=\"&laquo;math xmlns=&uml;http://www.w3.org/1998/Math/MathML&uml;&raquo;&laquo;mn&raquo;60&laquo;/mn&raquo;&laquo;mo&raquo;&sect;#176;&laquo;/mo&raquo;&laquo;/math&raquo;\" encode=\"encode\" data-latex=\"60%C2%B0\" />；<br />（3）如图3：∠AOM-∠NOC=30&deg;，理由如下：<br />∵∠AOC+∠BOC=180&deg;，<br />∠AOC：∠BOC=1：2，<br />∴∠AOC+2∠AOC=180&deg;，<br />∴∠AOC=60&deg;，<br />∴∠AON+CON=60&deg;，①<br />∵∠MON=90&deg;，<br />∴∠AOM+∠AON=90&deg;，②<br />②-①，得∠AOM-∠CON=30&deg;．<br />（4）<img alt=\"\" src=\"https://bj.download.cycore.cn/question/2019/12/31/4/22/4fb86e5d-8506-4abc-81c7-d48e1457717b.png\" w=\"348px\" h=\"151px\" /><br />如图4，当OM平分∠BOC时，ON所在直线平分∠AOC，<br />∠BOM=60&deg;，<br />∴三角板绕点O逆时针旋转60&deg;，<br />此时t=60&divide;30=2（秒）；<br />如图5，当ON平分∠AOC时，OM所在直线平分∠BOC，<br />∠CON=30&deg;，<br />∴三角板绕点O逆时针旋转240&deg;，<br />此时t=240&divide;30=8（秒）．<br />当om旋转150度时也符合要求，此时旋转了5秒，<br />∴旋转时间t为2秒或5秒或8秒．<br />答：旋转时间为2秒或5秒或8秒．<br /></div>",
+            "topicAnalysisImgUrl": "https://bj.download.cycore.cn/question/165/47fcf533-6207-4572-912f-06e79d7c6001.png",
+            "topicId": "fdb5e250-9638-4527-b8db-aa98ad915e3c",
+            "topicImgUrl": "https://bj.download.cycore.cn/question/740/0ba6da83-b8ab-40fe-8e76-2f4cffa2db9c.png",
+            "topicNumber": 19,
+            "topicSetId": "e66ba27d-3a16-4e4b-8c2a-eedd673cd652",
+            "topicSortShow": 19,
+            "topicSourcePaperName": "羊山中学2019-2020学年度七年级上期期末考试(数学)",
+            "topicType": "02",
+            "topicVersion": "1"
+        },
+        "avgScore": 2.6508,
+        "beSelectedStudentCount": 0,
+        "collectionSure": false,
+        "commentTopicSure": true,
+        "correctRate": 0,
+        "correctStudentCount": 0,
+        "dispTitle": "23",
+        "englishCompositionTopic": false,
+        "errorStudentCount": 63,
+        "isCandidate": false,
+        "isComplex": false,
+        "isIntelligent": false,
+        "isSubjectObject": false,
+        "isTypicalTopic": false,
+        "markingPaperTopicId": "bb047437-1fb5-4065-925d-77f070874063",
+        "maxScore": 9,
+        "minScore": 0,
+        "schAvgScore": 3.3262,
+        "schMaxScore": 11,
+        "schMinScore": 0,
+        "schScoreRate": 30.238182,
+        "selectRate": 0,
+        "standardScore": 11,
+        "topicId": "fdb5e250-9638-4527-b8db-aa98ad915e3c",
+        "topicNumber": 19,
+        "topicScoreRate": 24.098183,
+        "topicSortShow": 19
+    }
+]
