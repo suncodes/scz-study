@@ -1,5 +1,6 @@
-package cn.xxt.quest.imports.service;
+package sun.service;
 
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import sun.service.HtmlPaperService;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 
 @SpringBootTest(classes = HtmlPaperApplication.class)
 @RunWith(SpringRunner.class)
@@ -33,6 +35,11 @@ public class HtmlPaperService1Test {
         String path = "羊山中学2019-2020学年度七年级上期期末考试.zip";
         File file = new File(path);
         htmlPaperService.parseHtmlPaper(file);
+    }
+
+    @Test
+    public void f2() {
+        System.out.println(Arrays.toString("123".split("<br>")));
     }
 
 }

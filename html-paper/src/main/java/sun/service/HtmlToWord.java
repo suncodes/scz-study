@@ -17,6 +17,7 @@ import java.util.stream.Collectors;
 
 import com.latextoword.Latex_Word;
 import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.docx4j.XmlUtils;
 import org.docx4j.dml.wordprocessingDrawing.Inline;
@@ -70,26 +71,26 @@ import javax.xml.bind.JAXBException;
 
 public class HtmlToWord {
 
-	private static String[] labelArray = new String[]{"table", "p", "img", "latex"};
-    private static String[] needNewP = new String[]{"table", "p", "img"};
-	private static ObjectFactory factory;
-	private static WordprocessingMLPackage wordMLPackage;
+    private static String[] labelArray = new String[]{"table", "p", "img", "latex"};
+    private static String[] needNewP = new String[]{"table", "p", "img", "br"};
+    private static ObjectFactory factory;
+    private static WordprocessingMLPackage wordMLPackage;
 
-	public static byte[] resolveHtml(String data, Map<String, byte[]> imgMap) {
+    public static byte[] resolveHtml(String data, Map<String, byte[]> imgMap) {
 
-		/* data是html片段 */
-		Document document = Jsoup.parse(data);
-		try {
-			wordMLPackage = WordprocessingMLPackage.createPackage();
-			factory = Context.getWmlObjectFactory();
-			Relationship relationship = createFooterPart();
-			createFooterReference(relationship);
-			MainDocumentPart documentPart = wordMLPackage.getMainDocumentPart();
-			alterStyleSheet();
-			Element body = document.body();
-			List<Node> element = getElement(body);
-			element = element.stream().filter(node -> StringUtils.isNotBlank(node.toString())).collect(Collectors.toList());
-			P newP = null;
+        /* data是html片段 */
+        Document document = Jsoup.parse(data);
+        try {
+            wordMLPackage = WordprocessingMLPackage.createPackage();
+            factory = Context.getWmlObjectFactory();
+            Relationship relationship = createFooterPart();
+            createFooterReference(relationship);
+            MainDocumentPart documentPart = wordMLPackage.getMainDocumentPart();
+            alterStyleSheet();
+            Element body = document.body();
+            List<Node> element = getElement(body);
+            element = element.stream().filter(node -> StringUtils.isNotEmpty(node.toString())).collect(Collectors.toList());
+            P newP = null;
             for (int i = 0; i < element.size(); i++) {
                 Node em = element.get(i);
                 switch (em.nodeName()) {
@@ -116,502 +117,532 @@ public class HtmlToWord {
                         Object wordFormulaObj = getWordFormulaObj(text);
                         //  将公式对象添加到段落中
                         newP.getContent().add(wordFormulaObj);
-                        documentPart.getContent().add(newP);
+                        if (i == element.size() - 1 || Arrays.asList(needNewP).contains(element.get(i + 1).nodeName())) {
+                            documentPart.getContent().add(newP);
+                        }
                         break;
+					case "br":
+						break;
                     default:
                         if (i == 0 || Arrays.asList(needNewP).contains(element.get(i - 1).nodeName())) {
                             newP = factory.createP();
                         }
-                        if (em.toString() != null) {
-                            Text t = factory.createText();
-                            t.setValue(em.toString());
-                            R run = factory.createR();
-                            run.getContent().add(t);
-                            newP.getContent().add(run);
+						String s = StringEscapeUtils.unescapeHtml4(em.toString());
+						Text t = factory.createText();
+						t.setValue(s);
+						R run = factory.createR();
+						run.getContent().add(t);
+						newP.getContent().add(run);
+                        if (i == element.size() - 1 || Arrays.asList(needNewP).contains(element.get(i + 1).nodeName())) {
                             documentPart.addObject(newP);
                         }
                         break;
                 }
             }
-			addPageBreak(documentPart);
-			ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-			wordMLPackage.save(outputStream);
-			return outputStream.toByteArray();
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
+            addPageBreak(documentPart);
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            wordMLPackage.save(outputStream);
+            return outputStream.toByteArray();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
-	/**
-	 * 获取LaTeX值对应的word公式对象
-	 *
-	 * @param latex LaTeX值
-	 * @return 可直接添加到文档中的公式对象
-	 * @throws JAXBException
-	 */
-	private static Object getWordFormulaObj(String latex) throws JAXBException {
-		String convertResult = Latex_Word.latexToWordAlreadyClean(latex);
-		String requiredStr = " xmlns:w=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"" +
-				" xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\"";
-		convertResult = new StringBuilder(convertResult).insert(8, requiredStr).toString();
-		return XmlUtils.unmarshalString(convertResult);
-	}
+    /**
+     * 获取LaTeX值对应的word公式对象
+     *
+     * @param latex LaTeX值
+     * @return 可直接添加到文档中的公式对象
+     * @throws JAXBException
+     */
+    private static Object getWordFormulaObj(String latex) {
+        String convertResult = Latex_Word.latexToWordAlreadyClean(latex);
+        String requiredStr = " xmlns:w=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"" +
+                " xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\"";
+        convertResult = new StringBuilder(convertResult).insert(8, requiredStr).toString();
+        try {
+            return XmlUtils.unmarshalString(convertResult);
+        } catch (JAXBException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
-	public static List<Node> getElement(Node body) {
-		List<Node> elementList = new ArrayList<>();
-		List<Node> nodes = body.childNodes();
-		if (nodes.size() == 0) {
-			elementList.add(body);
-		} else {
-			if (Arrays.asList(labelArray).contains(body.nodeName())) {
-				elementList.add(body);
-			} else {
-				for (Node child : nodes) {
-					elementList.addAll(getElement(child));
+    public static List<Node> getElement(Node body) {
+        List<Node> elementList = new ArrayList<>();
+        List<Node> nodes = body.childNodes();
+        if (nodes.size() == 0) {
+            elementList.add(body);
+        } else {
+            if (Arrays.asList(labelArray).contains(body.nodeName())) {
+                elementList.add(body);
+            } else {
+                for (Node child : nodes) {
+                    elementList.addAll(getElement(child));
+                }
+            }
+        }
+        return elementList;
+    }
+
+    /**
+     * @param @param  text
+     * @param @return 设定文件
+     * @return P    返回类型
+     * @throws
+     * @Title: addParapraph
+     * @Description: (文本转段落)
+     */
+    private static P addParapraph(String text) {
+
+        factory = Context.getWmlObjectFactory();
+        P paragraph = factory.createP();
+        Document document = Jsoup.parse(text);
+        Element body = document.body();
+        List<Node> element = getElement(body);
+        for (Node node : element) {
+            if ("latex".equals(node.nodeName())) {
+                String s = ((Element) node).html();
+                Object wordFormulaObj = getWordFormulaObj(s);
+                paragraph.getContent().add(wordFormulaObj);
+            } else {
+            	String s = StringEscapeUtils.unescapeHtml4(node.toString());
+				String[] split = s.split("<br>");
+				for (int i = 0; i < split.length; i++) {
+					//为br创建对象Br
+					Br br = factory.createBr();
+					String s1 = split[i];
+					Text t = factory.createText();
+					t.setValue(s1);
+					R run = factory.createR();
+					if (i != 0) {
+						run.getContent().add(br);
+					}
+					run.getContent().add(t);
+					paragraph.getContent().add(run);
+					RPr runProperties = factory.createRPr();
+					run.setRPr(runProperties);
 				}
-			}
-		}
-		return elementList;
-	}
+            }
+        }
 
-	/**
-	 * @Title: addParapraph
-	 * @Description: (文本转段落)
-	 * @param @param text
-	 * @param @return    设定文件
-	 * @return P    返回类型
-	 * @throws
-	 */
-	private static P addParapraph(String text) {
-		factory=Context.getWmlObjectFactory();
-		P paragraph = factory.createP();
-		Text t = factory.createText();
-		t.setValue(text);
-		R run = factory.createR();
-		run.getContent().add(t);
-		paragraph.getContent().add(run);
-		RPr runProperties = factory.createRPr();
-		run.setRPr(runProperties);
-		return paragraph;
-	}
+        return paragraph;
+    }
 
-	/**
-	 * @Title: setFirstLine
-	 * @Description: TODO(设置段落首行缩进)
-	 * @param @param p
-	 * @param @param str    设定文件
-	 * @return void    返回类型
-	 * @throws
-	 */
-	private static void setFirstLine(P p ,String str) {
-		PPr ppr = getPPr(p);
-		Ind ind = ppr.getInd();
-		if (ind == null) {
-			ind = new Ind();
-			ppr.setInd(ind);
-		}
-		/*   ind.setFirstLineChars(new BigInteger("200"));*/
-		ind.setFirstLine(new BigInteger(str));
-	};
+    /**
+     * @param @param p
+     * @param @param str    设定文件
+     * @return void    返回类型
+     * @throws
+     * @Title: setFirstLine
+     * @Description: TODO(设置段落首行缩进)
+     */
+    private static void setFirstLine(P p, String str) {
+        PPr ppr = getPPr(p);
+        Ind ind = ppr.getInd();
+        if (ind == null) {
+            ind = new Ind();
+            ppr.setInd(ind);
+        }
+        /*   ind.setFirstLineChars(new BigInteger("200"));*/
+        ind.setFirstLine(new BigInteger(str));
+    }
 
-	private static PPr getPPr(P p) {
-		PPr ppr = p.getPPr();
-		if (ppr == null) {
-			ppr = new PPr();
-			p.setPPr(ppr);
-		}
-		return ppr;
-	}
+    ;
 
-	/**
-	 *         table @param @return 设定文件 @return Tbl 返回类型 @throws
-	 */
-	private static Tbl addTable(Element table) {
-		factory = Context.getWmlObjectFactory();
-		Tbl tbl = factory.createTbl();
-		addBorders(tbl);
-		Elements trs = table.getElementsByTag("tr");
-		for (Element tr : trs) {
-			Tr fTr = addTableTr(tr);
-			tbl.getContent().add(fTr);
-		}
-		return tbl;
-	}
+    private static PPr getPPr(P p) {
+        PPr ppr = p.getPPr();
+        if (ppr == null) {
+            ppr = new PPr();
+            p.setPPr(ppr);
+        }
+        return ppr;
+    }
 
-	/**
-	 *         tr @param @return 设定文件 @return Tr 返回类型 @throws
-	 */
-	private static Tr addTableTr(Element tr) {
-		Elements tds = tr.getElementsByTag("th").isEmpty() ? tr.getElementsByTag("td") : tr.getElementsByTag("th");
-		Tr ftr = factory.createTr();
-		for (int i = 0, j = tds.size(); i < j; i++) {
-			Tc ftd = factory.createTc();
-			setCellWidth(ftd, 1000);
-			ftd.getContent().add(wordMLPackage.getMainDocumentPart().createParagraphOfText(tds.get(i).text()));
-			ftr.getContent().add(ftd);
-		}
-		return ftr;
-	}
+    /**
+     * table @param @return 设定文件 @return Tbl 返回类型 @throws
+     */
+    private static Tbl addTable(Element table) {
+        factory = Context.getWmlObjectFactory();
+        Tbl tbl = factory.createTbl();
+        addBorders(tbl);
+        Elements trs = table.getElementsByTag("tr");
+        for (Element tr : trs) {
+            Tr fTr = addTableTr(tr);
+            tbl.getContent().add(fTr);
+        }
+        return tbl;
+    }
 
-	/**
-	 * 本方法创建一个单元格属性集对象和一个表格宽度对象. 将给定的宽度设置到宽度对象然后将其添加到 属性集对象. 最后将属性集对象设置到单元格中.
-	 */
-	private static void setCellWidth(Tc tableCell, int width) {
-		TcPr tableCellProperties = new TcPr();
-		TblWidth tableWidth = new TblWidth();
-		tableWidth.setW(BigInteger.valueOf(width));
-		tableCellProperties.setTcW(tableWidth);
-		tableCell.setTcPr(tableCellProperties);
-	}
+    /**
+     * tr @param @return 设定文件 @return Tr 返回类型 @throws
+     */
+    private static Tr addTableTr(Element tr) {
+        Elements tds = tr.getElementsByTag("th").isEmpty() ? tr.getElementsByTag("td") : tr.getElementsByTag("th");
+        Tr ftr = factory.createTr();
+        for (int i = 0, j = tds.size(); i < j; i++) {
+            Tc ftd = factory.createTc();
+            setCellWidth(ftd, 10000);
+            String text = tds.get(i).html();
+            P p = addParapraph(text);
+            ftd.getContent().add(p);
+            ftr.getContent().add(ftd);
+        }
+        return ftr;
+    }
 
-	/**
-	 * 本方法为表格添加边框
-	 */
-	private static void addBorders(Tbl table) {
-		table.setTblPr(new TblPr());
-		CTBorder border = new CTBorder();
-		border.setColor("auto");
-		border.setSz(new BigInteger("4"));
-		border.setSpace(new BigInteger("0"));
-		border.setVal(STBorder.SINGLE);
+    /**
+     * 本方法创建一个单元格属性集对象和一个表格宽度对象. 将给定的宽度设置到宽度对象然后将其添加到 属性集对象. 最后将属性集对象设置到单元格中.
+     */
+    private static void setCellWidth(Tc tableCell, int width) {
+        TcPr tableCellProperties = new TcPr();
+        TblWidth tableWidth = new TblWidth();
+        tableWidth.setW(BigInteger.valueOf(width));
+        tableCellProperties.setTcW(tableWidth);
+        tableCell.setTcPr(tableCellProperties);
+    }
 
-		TblBorders borders = new TblBorders();
-		borders.setBottom(border);
-		borders.setLeft(border);
-		borders.setRight(border);
-		borders.setTop(border);
-		borders.setInsideH(border);
-		borders.setInsideV(border);
-		table.getTblPr().setTblBorders(borders);
-	}
+    /**
+     * 本方法为表格添加边框
+     */
+    private static void addBorders(Tbl table) {
+        table.setTblPr(new TblPr());
+        CTBorder border = new CTBorder();
+        border.setColor("auto");
+        border.setSz(new BigInteger("4"));
+        border.setSpace(new BigInteger("0"));
+        border.setVal(STBorder.SINGLE);
 
-	/**
-	 * 将图片从文件对象转换成字节数组.
-	 *
-	 * @param file
-	 *            将要转换的文件
-	 * @return 包含图片字节数据的字节数组
-	 * @throws FileNotFoundException
-	 * @throws IOException
-	 */
-	private static byte[] convertImageToByteArray(File file) throws FileNotFoundException, IOException {
-		InputStream is = new FileInputStream(file);
-		long length = file.length();
-		// 不能使用long类型创建数组, 需要用int类型.
-		if (length > Integer.MAX_VALUE) {
-			System.out.println("File too large!!");
-		}
-		byte[] bytes = new byte[(int) length];
-		int offset = 0;
-		int numRead = 0;
-		while (offset < bytes.length && (numRead = is.read(bytes, offset, bytes.length - offset)) >= 0) {
-			offset += numRead;
-		}
-		// 确认所有的字节都没读取
-		if (offset < bytes.length) {
-			System.out.println("Could not completely read file " + file.getName());
-		}
-		is.close();
-		return bytes;
-	}
+        TblBorders borders = new TblBorders();
+        borders.setBottom(border);
+        borders.setLeft(border);
+        borders.setRight(border);
+        borders.setTop(border);
+        borders.setInsideH(border);
+        borders.setInsideV(border);
+        table.getTblPr().setTblBorders(borders);
+    }
 
-	/**
-	 * Docx4j拥有一个由字节数组创建图片部件的工具方法, 随后将其添加到给定的包中. 为了能将图片添加 到一个段落中, 我们需要将图片转换成内联对象.
-	 * 这也有一个方法, 方法需要文件名提示, 替换文本, 两个id标识符和一个是嵌入还是链接到的指示作为参数. 一个id用于文档中绘图对象不可见的属性,
-	 * 另一个id用于图片本身不可见的绘制属性. 最后我们将内联 对象添加到段落中并将段落添加到包的主文档部件.
-	 *
-	 * @param wordMLPackage
-	 *            要添加图片的包
-	 * @param bytes
-	 *            图片对应的字节数组
-	 * @throws Exception
-	 *             不幸的createImageInline方法抛出一个异常(没有更多具体的异常类型)
-	 */
-	private static void addImageToPackage(WordprocessingMLPackage wordMLPackage, byte[] bytes) throws Exception {
-		BinaryPartAbstractImage imagePart = BinaryPartAbstractImage.createImagePart(wordMLPackage, bytes);
+    /**
+     * 将图片从文件对象转换成字节数组.
+     *
+     * @param file 将要转换的文件
+     * @return 包含图片字节数据的字节数组
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
+    private static byte[] convertImageToByteArray(File file) throws FileNotFoundException, IOException {
+        InputStream is = new FileInputStream(file);
+        long length = file.length();
+        // 不能使用long类型创建数组, 需要用int类型.
+        if (length > Integer.MAX_VALUE) {
+            System.out.println("File too large!!");
+        }
+        byte[] bytes = new byte[(int) length];
+        int offset = 0;
+        int numRead = 0;
+        while (offset < bytes.length && (numRead = is.read(bytes, offset, bytes.length - offset)) >= 0) {
+            offset += numRead;
+        }
+        // 确认所有的字节都没读取
+        if (offset < bytes.length) {
+            System.out.println("Could not completely read file " + file.getName());
+        }
+        is.close();
+        return bytes;
+    }
 
-		int docPrId = 1;
-		int cNvPrId = 2;
-		Inline inline = imagePart.createImageInline("Filename hint", "Alternative text", docPrId, cNvPrId, false);
+    /**
+     * Docx4j拥有一个由字节数组创建图片部件的工具方法, 随后将其添加到给定的包中. 为了能将图片添加 到一个段落中, 我们需要将图片转换成内联对象.
+     * 这也有一个方法, 方法需要文件名提示, 替换文本, 两个id标识符和一个是嵌入还是链接到的指示作为参数. 一个id用于文档中绘图对象不可见的属性,
+     * 另一个id用于图片本身不可见的绘制属性. 最后我们将内联 对象添加到段落中并将段落添加到包的主文档部件.
+     *
+     * @param wordMLPackage 要添加图片的包
+     * @param bytes         图片对应的字节数组
+     * @throws Exception 不幸的createImageInline方法抛出一个异常(没有更多具体的异常类型)
+     */
+    private static void addImageToPackage(WordprocessingMLPackage wordMLPackage, byte[] bytes) throws Exception {
+        BinaryPartAbstractImage imagePart = BinaryPartAbstractImage.createImagePart(wordMLPackage, bytes);
 
-		P paragraph = addInlineImageToParagraph(inline);
+        int docPrId = 1;
+        int cNvPrId = 2;
+        Inline inline = imagePart.createImageInline("Filename hint", "Alternative text", docPrId, cNvPrId, false);
 
-		wordMLPackage.getMainDocumentPart().addObject(paragraph);
-	}
+        P paragraph = addInlineImageToParagraph(inline);
 
-	/**
-	 * 创建一个对象工厂并用它创建一个段落和一个可运行块R. 然后将可运行块添加到段落中. 接下来创建一个图画并将其添加到可运行块R中. 最后我们将内联
-	 * 对象添加到图画中并返回段落对象.
-	 *
-	 * @param inline
-	 *            包含图片的内联对象.
-	 * @return 包含图片的段落
-	 */
-	private static P addInlineImageToParagraph(Inline inline) {
-		// 添加内联对象到一个段落中
-		ObjectFactory factory = new ObjectFactory();
-		P paragraph = factory.createP();
-		R run = factory.createR();
-		paragraph.getContent().add(run);
-		Drawing drawing = factory.createDrawing();
-		run.getContent().add(drawing);
-		drawing.getAnchorOrInline().add(inline);
-		return paragraph;
-	}
+        wordMLPackage.getMainDocumentPart().addObject(paragraph);
+    }
 
-	/**
-	 * This method alters the default style sheet that is part of each document.
-	 *
-	 * To do this, we first retrieve the style sheet from the package and then get
-	 * the Styles object from it. From this object, we get the list of actual styles
-	 * and iterate over them. We check against all styles we want to alter and apply
-	 * the alterations if applicable.
-	 *
-	 * @param wordMLPackage
-	 */
-	public static void alterStyleSheet() {
-		StyleDefinitionsPart styleDefinitionsPart = wordMLPackage.getMainDocumentPart().getStyleDefinitionsPart();
-		Styles styles = null;
-		try {
-			styles = styleDefinitionsPart.getContents();
-		} catch (Docx4JException e) {
-			e.printStackTrace();
-		}
+    /**
+     * 创建一个对象工厂并用它创建一个段落和一个可运行块R. 然后将可运行块添加到段落中. 接下来创建一个图画并将其添加到可运行块R中. 最后我们将内联
+     * 对象添加到图画中并返回段落对象.
+     *
+     * @param inline 包含图片的内联对象.
+     * @return 包含图片的段落
+     */
+    private static P addInlineImageToParagraph(Inline inline) {
+        // 添加内联对象到一个段落中
+        ObjectFactory factory = new ObjectFactory();
+        P paragraph = factory.createP();
+        R run = factory.createR();
+        paragraph.getContent().add(run);
+        Drawing drawing = factory.createDrawing();
+        run.getContent().add(drawing);
+        drawing.getAnchorOrInline().add(inline);
+        return paragraph;
+    }
 
-		List<Style> stylesList = styles.getStyle();
-		for (Style style : stylesList) {
-			if (style.getStyleId().equals("Normal")) {
-				alterNormalStyle(style);
-			} else if (style.getStyleId().equals("Heading1")) {
-				alterHeading1Style(style);
-			} else if (style.getStyleId().equals("Heading2")) {
-				alterHeading2Style(style);
-			} else if (style.getStyleId().equals("Title") || style.getStyleId().equals("Subtitle")) {
-				getRunPropertiesAndRemoveThemeInfo(style);
-			}
-		}
-	}
+    /**
+     * This method alters the default style sheet that is part of each document.
+     * <p>
+     * To do this, we first retrieve the style sheet from the package and then get
+     * the Styles object from it. From this object, we get the list of actual styles
+     * and iterate over them. We check against all styles we want to alter and apply
+     * the alterations if applicable.
+     *
+     * @param wordMLPackage
+     */
+    public static void alterStyleSheet() {
+        StyleDefinitionsPart styleDefinitionsPart = wordMLPackage.getMainDocumentPart().getStyleDefinitionsPart();
+        Styles styles = null;
+        try {
+            styles = styleDefinitionsPart.getContents();
+        } catch (Docx4JException e) {
+            e.printStackTrace();
+        }
 
-	/**
-	 * First we create a run properties object as we want to remove nearly all of
-	 * the existing styling. Then we change the font and font size and set the run
-	 * properties on the given style. As in previous examples, the font size is
-	 * defined to be in half-point size.
-	 */
-	private static void alterNormalStyle(Style style) {
-		// we want to change (or remove) almost all the run properties of the
-		// normal style, so we create a new one.
-		RPr rpr = new RPr();
-		changeFontToArial(rpr);
-		changeFontSize(rpr, 20);
-		style.setRPr(rpr);
-	}
+        List<Style> stylesList = styles.getStyle();
+        for (Style style : stylesList) {
+            if (style.getStyleId().equals("Normal")) {
+                alterNormalStyle(style);
+            } else if (style.getStyleId().equals("Heading1")) {
+                alterHeading1Style(style);
+            } else if (style.getStyleId().equals("Heading2")) {
+                alterHeading2Style(style);
+            } else if (style.getStyleId().equals("Title") || style.getStyleId().equals("Subtitle")) {
+                getRunPropertiesAndRemoveThemeInfo(style);
+            }
+        }
+    }
 
-	/**
-	 * For this style, we get the existing run properties from the style and remove
-	 * the theme font information from them. Then we also remove the bold styling,
-	 * change the font size (half-points) and add an underline.
-	 */
-	private static void alterHeading1Style(Style style) {
-		RPr rpr = getRunPropertiesAndRemoveThemeInfo(style);
-		removeBoldStyle(rpr);
-		changeFontSize(rpr, 28);
-		/* addUnderline(rpr); */
-	}
+    /**
+     * First we create a run properties object as we want to remove nearly all of
+     * the existing styling. Then we change the font and font size and set the run
+     * properties on the given style. As in previous examples, the font size is
+     * defined to be in half-point size.
+     */
+    private static void alterNormalStyle(Style style) {
+        // we want to change (or remove) almost all the run properties of the
+        // normal style, so we create a new one.
+        RPr rpr = new RPr();
+        changeFontToArial(rpr);
+        changeFontSize(rpr, 20);
+        style.setRPr(rpr);
+    }
 
-	private static void alterHeading2Style(Style style) {
-		RPr rpr = getRunPropertiesAndRemoveThemeInfo(style);
-		removeBoldStyle(rpr);
-		changeFontSize(rpr, 24);
+    /**
+     * For this style, we get the existing run properties from the style and remove
+     * the theme font information from them. Then we also remove the bold styling,
+     * change the font size (half-points) and add an underline.
+     */
+    private static void alterHeading1Style(Style style) {
+        RPr rpr = getRunPropertiesAndRemoveThemeInfo(style);
+        removeBoldStyle(rpr);
+        changeFontSize(rpr, 28);
+        /* addUnderline(rpr); */
+    }
 
-		/* addUnderline(rpr); */
-	}
+    private static void alterHeading2Style(Style style) {
+        RPr rpr = getRunPropertiesAndRemoveThemeInfo(style);
+        removeBoldStyle(rpr);
+        changeFontSize(rpr, 24);
 
-	private static RPr getRunPropertiesAndRemoveThemeInfo(Style style) {
-		// We only want to change some settings, so we get the existing run
-		// properties from the style.
-		RPr rpr = style.getRPr();
-		removeThemeFontInformation(rpr);
-		return rpr;
-	}
+        /* addUnderline(rpr); */
+    }
 
-	/**
-	 * Change the font of the given run properties to Arial.
-	 *
-	 * A run font specifies the fonts which shall be used to display the contents of
-	 * the run. Of the four possible types of content, we change the styling of two
-	 * of them: ASCII and High ANSI. Finally we add the run font to the run
-	 * properties.
-	 *
-	 * @param runProperties
-	 */
-	private static void changeFontToArial(RPr runProperties) {
-		RFonts runFont = new RFonts();
-		runFont.setAscii("Arial");
-		runFont.setHAnsi("Arial");
-		runProperties.setRFonts(runFont);
-	}
+    private static RPr getRunPropertiesAndRemoveThemeInfo(Style style) {
+        // We only want to change some settings, so we get the existing run
+        // properties from the style.
+        RPr rpr = style.getRPr();
+        removeThemeFontInformation(rpr);
+        return rpr;
+    }
 
-	/**
-	 * Change the font size of the given run properties to the given value.
-	 *
-	 * @param runProperties
-	 * @param fontSize
-	 *            Twice the size needed, as it is specified as half-point value
-	 */
-	private static void changeFontSize(RPr runProperties, int fontSize) {
-		HpsMeasure size = new HpsMeasure();
-		size.setVal(BigInteger.valueOf(fontSize));
-		runProperties.setSz(size);
-	}
+    /**
+     * Change the font of the given run properties to Arial.
+     * <p>
+     * A run font specifies the fonts which shall be used to display the contents of
+     * the run. Of the four possible types of content, we change the styling of two
+     * of them: ASCII and High ANSI. Finally we add the run font to the run
+     * properties.
+     *
+     * @param runProperties
+     */
+    private static void changeFontToArial(RPr runProperties) {
+        RFonts runFont = new RFonts();
+        runFont.setAscii("Arial");
+        runFont.setHAnsi("Arial");
+        runProperties.setRFonts(runFont);
+    }
 
-	/**
-	 * Removes the theme font information from the run properties. If this is not
-	 * removed then the styles based on the normal style won't inherit the Arial
-	 * font from the normal style.
-	 *
-	 * @param runProperties
-	 */
-	private static void removeThemeFontInformation(RPr runProperties) {
-		runProperties.getRFonts().setAsciiTheme(null);
-		runProperties.getRFonts().setHAnsiTheme(null);
-	}
+    /**
+     * Change the font size of the given run properties to the given value.
+     *
+     * @param runProperties
+     * @param fontSize      Twice the size needed, as it is specified as half-point value
+     */
+    private static void changeFontSize(RPr runProperties, int fontSize) {
+        HpsMeasure size = new HpsMeasure();
+        size.setVal(BigInteger.valueOf(fontSize));
+        runProperties.setSz(size);
+    }
 
-	/**
-	 * Removes the Bold styling from the run properties.
-	 *
-	 * @param runProperties
-	 */
-	private static void removeBoldStyle(RPr runProperties) {
-		runProperties.getB().setVal(false);
-	}
+    /**
+     * Removes the theme font information from the run properties. If this is not
+     * removed then the styles based on the normal style won't inherit the Arial
+     * font from the normal style.
+     *
+     * @param runProperties
+     */
+    private static void removeThemeFontInformation(RPr runProperties) {
+        runProperties.getRFonts().setAsciiTheme(null);
+        runProperties.getRFonts().setHAnsiTheme(null);
+    }
+
+    /**
+     * Removes the Bold styling from the run properties.
+     *
+     * @param runProperties
+     */
+    private static void removeBoldStyle(RPr runProperties) {
+        runProperties.getB().setVal(false);
+    }
 
 
+    /**
+     * As in the previous example, this method creates a footer part and adds it to
+     * the main document and then returns the corresponding relationship.
+     *
+     * @return
+     * @throws InvalidFormatException
+     */
+    private static Relationship createFooterPart() throws InvalidFormatException {
+        FooterPart footerPart = new FooterPart();
+        footerPart.setPackage(wordMLPackage);
 
-	/**
-	 * As in the previous example, this method creates a footer part and adds it to
-	 * the main document and then returns the corresponding relationship.
-	 *
-	 * @return
-	 * @throws InvalidFormatException
-	 */
-	private static Relationship createFooterPart() throws InvalidFormatException {
-		FooterPart footerPart = new FooterPart();
-		footerPart.setPackage(wordMLPackage);
+        footerPart.setJaxbElement(createFooterWithPageNr());
 
-		footerPart.setJaxbElement(createFooterWithPageNr());
+        return wordMLPackage.getMainDocumentPart().addTargetPart(footerPart);
+    }
 
-		return wordMLPackage.getMainDocumentPart().addTargetPart(footerPart);
-	}
+    /**
+     * As in the previous example, we create a footer and a paragraph object. But
+     * this time, instead of adding text to a run, we add a field. And just as with
+     * the table of content, we have to add a begin and end character around the
+     * actual field with the page number. Finally we add the paragraph to the
+     * content of the footer and then return it.
+     *
+     * @return
+     */
+    public static Ftr createFooterWithPageNr() {
+        Ftr ftr = factory.createFtr();
+        P paragraph = factory.createP();
 
-	/**
-	 * As in the previous example, we create a footer and a paragraph object. But
-	 * this time, instead of adding text to a run, we add a field. And just as with
-	 * the table of content, we have to add a begin and end character around the
-	 * actual field with the page number. Finally we add the paragraph to the
-	 * content of the footer and then return it.
-	 *
-	 * @return
-	 */
-	public static Ftr createFooterWithPageNr() {
-		Ftr ftr = factory.createFtr();
-		P paragraph = factory.createP();
+        addFieldBegin(paragraph);
+        addPageNumberField(paragraph);
+        addFieldEnd(paragraph);
 
-		addFieldBegin(paragraph);
-		addPageNumberField(paragraph);
-		addFieldEnd(paragraph);
+        ftr.getContent().add(paragraph);
+        return ftr;
+    }
 
-		ftr.getContent().add(paragraph);
-		return ftr;
-	}
+    /**
+     * Creating the page number field is nearly the same as creating the field in
+     * the TOC example. The only difference is in the value. We use the PAGE
+     * command, which prints the number of the current page, together with the
+     * MERGEFORMAT switch, which indicates that the current formatting should be
+     * preserved when the field is updated.
+     *
+     * @param paragraph
+     */
+    private static void addPageNumberField(P paragraph) {
+        R run = factory.createR();
+        Text txt = new Text();
+        txt.setSpace("preserve");
+        txt.setValue(" PAGE   \\* MERGEFORMAT ");
+        run.getContent().add(factory.createRInstrText(txt));
+        paragraph.getContent().add(run);
+    }
 
-	/**
-	 * Creating the page number field is nearly the same as creating the field in
-	 * the TOC example. The only difference is in the value. We use the PAGE
-	 * command, which prints the number of the current page, together with the
-	 * MERGEFORMAT switch, which indicates that the current formatting should be
-	 * preserved when the field is updated.
-	 *
-	 * @param paragraph
-	 */
-	private static void addPageNumberField(P paragraph) {
-		R run = factory.createR();
-		Text txt = new Text();
-		txt.setSpace("preserve");
-		txt.setValue(" PAGE   \\* MERGEFORMAT ");
-		run.getContent().add(factory.createRInstrText(txt));
-		paragraph.getContent().add(run);
-	}
+    /**
+     * Every fields needs to be delimited by complex field characters. This method
+     * adds the delimiter that precedes the actual field to the given paragraph.
+     *
+     * @param paragraph
+     */
+    private static void addFieldBegin(P paragraph) {
+        R run = factory.createR();
+        FldChar fldchar = factory.createFldChar();
+        fldchar.setFldCharType(STFldCharType.BEGIN);
+        run.getContent().add(fldchar);
+        paragraph.getContent().add(run);
+    }
 
-	/**
-	 * Every fields needs to be delimited by complex field characters. This method
-	 * adds the delimiter that precedes the actual field to the given paragraph.
-	 *
-	 * @param paragraph
-	 */
-	private static void addFieldBegin(P paragraph) {
-		R run = factory.createR();
-		FldChar fldchar = factory.createFldChar();
-		fldchar.setFldCharType(STFldCharType.BEGIN);
-		run.getContent().add(fldchar);
-		paragraph.getContent().add(run);
-	}
+    /**
+     * Every fields needs to be delimited by complex field characters. This method
+     * adds the delimiter that follows the actual field to the given paragraph.
+     *
+     * @param paragraph
+     */
+    private static void addFieldEnd(P paragraph) {
+        FldChar fldcharend = factory.createFldChar();
+        fldcharend.setFldCharType(STFldCharType.END);
+        R run3 = factory.createR();
+        run3.getContent().add(fldcharend);
+        paragraph.getContent().add(run3);
+    }
 
-	/**
-	 * Every fields needs to be delimited by complex field characters. This method
-	 * adds the delimiter that follows the actual field to the given paragraph.
-	 *
-	 * @param paragraph
-	 */
-	private static void addFieldEnd(P paragraph) {
-		FldChar fldcharend = factory.createFldChar();
-		fldcharend.setFldCharType(STFldCharType.END);
-		R run3 = factory.createR();
-		run3.getContent().add(fldcharend);
-		paragraph.getContent().add(run3);
-	}
+    /**
+     * This method fetches the document final section properties, and adds a newly
+     * created footer reference to them.
+     *
+     * @param relationship
+     */
+    public static void createFooterReference(Relationship relationship) {
 
-	/**
-	 * This method fetches the document final section properties, and adds a newly
-	 * created footer reference to them.
-	 *
-	 * @param relationship
-	 */
-	public static void createFooterReference(Relationship relationship) {
+        List<SectionWrapper> sections = wordMLPackage.getDocumentModel().getSections();
 
-		List<SectionWrapper> sections = wordMLPackage.getDocumentModel().getSections();
+        SectPr sectPr = sections.get(sections.size() - 1).getSectPr();
+        // There is always a section wrapper, but it might not contain a sectPr
+        if (sectPr == null) {
+            sectPr = factory.createSectPr();
+            wordMLPackage.getMainDocumentPart().addObject(sectPr);
+            sections.get(sections.size() - 1).setSectPr(sectPr);
+        }
 
-		SectPr sectPr = sections.get(sections.size() - 1).getSectPr();
-		// There is always a section wrapper, but it might not contain a sectPr
-		if (sectPr == null) {
-			sectPr = factory.createSectPr();
-			wordMLPackage.getMainDocumentPart().addObject(sectPr);
-			sections.get(sections.size() - 1).setSectPr(sectPr);
-		}
+        FooterReference footerReference = factory.createFooterReference();
+        footerReference.setId(relationship.getId());
+        footerReference.setType(HdrFtrRef.DEFAULT);
+        sectPr.getEGHdrFtrReferences().add(footerReference);
+    }
 
-		FooterReference footerReference = factory.createFooterReference();
-		footerReference.setId(relationship.getId());
-		footerReference.setType(HdrFtrRef.DEFAULT);
-		sectPr.getEGHdrFtrReferences().add(footerReference);
-	}
+    /**
+     * Adds a page break to the document.
+     *
+     * @param documentPart
+     */
+    private static void addPageBreak(MainDocumentPart documentPart) {
+        Br breakObj = new Br();
+        breakObj.setType(STBrType.PAGE);
 
-	/**
-	 * Adds a page break to the document.
-	 *
-	 * @param documentPart
-	 */
-	private static void addPageBreak(MainDocumentPart documentPart) {
-		Br breakObj = new Br();
-		breakObj.setType(STBrType.PAGE);
-
-		P paragraph = factory.createP();
-		paragraph.getContent().add(breakObj);
-		try {
-			documentPart.getContents().getBody().getContent().add(paragraph);
-		} catch (Docx4JException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+        P paragraph = factory.createP();
+        paragraph.getContent().add(breakObj);
+        try {
+            documentPart.getContents().getBody().getContent().add(paragraph);
+        } catch (Docx4JException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
 }

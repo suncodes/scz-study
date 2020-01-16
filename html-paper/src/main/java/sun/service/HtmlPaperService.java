@@ -119,17 +119,19 @@ public class HtmlPaperService {
             Map<String, byte[]> imgMap = htmlPaperBO.getImgMap();
             for (QuestionsNoRepeatPO questionsNoRepeatPO : questionsNoRepeatPOList) {
                 String qseq = questionsNoRepeatPO.getQseq();
-                String rowKey = questionsNoRepeatPO.getRowKey();
-                String content = questionsNoRepeatPO.getContent();
-                System.out.println(content);
-                byte[] questSmallWord = createSmallWord(imgMap, content);
-
-//                String answer = questionsNoRepeatPO.getAnswer();
-//                String analysis = questionsNoRepeatPO.getAnalysis();
-//                byte[] answerSmallWord = createSmallWord(imgMap, answer, analysis);
-//                File docx1 = new File("F:\\工作记录及文件及成果\\工作记录（2020）\\20200114-html试卷\\" + qseq + "-answer.docx");
-//                FileUtils.writeByteArrayToFile(docx1, answerSmallWord, false);
-                break;
+                if (qseq.equals("21")) {
+                    String rowKey = questionsNoRepeatPO.getRowKey();
+                    String content = questionsNoRepeatPO.getContent();
+                    System.out.println(content);
+//                byte[] questSmallWord = createSmallWord(imgMap, content);
+//                File docx = new File("F:\\工程所用文档\\" + qseq + ".docx");
+//                FileUtils.writeByteArrayToFile(docx, questSmallWord, false);
+                    String answer = questionsNoRepeatPO.getAnswer();
+                    String analysis = questionsNoRepeatPO.getAnalysis();
+                    byte[] answerSmallWord = createSmallWord(imgMap, answer, analysis);
+                    File docx1 = new File("F:\\工程所用文档\\" + qseq + "-answer.docx");
+                    FileUtils.writeByteArrayToFile(docx1, answerSmallWord, false);
+                }
             }
 //        }
     }
@@ -250,7 +252,10 @@ public class HtmlPaperService {
      */
     public String getRemoveLabelContent(String content, Map<String, byte[]> imgMap, Map<String, byte[]> needImportImgMap) {
         // 去标签
-        String retStr = Jsoup.clean(content, Whitelist.none().addTags("p", "img", "table", "tr", "td", "th", "<br/>")
+        // 换行
+        content = content.replaceAll("</div>", "</div><br/>");
+        content = content.replaceAll("<div>", "<div><br/>");
+        String retStr = Jsoup.clean(content, Whitelist.none().addTags("p", "img", "table", "tr", "td", "th", "br")
                 .addAttributes("img", "align", "alt", "height", "src", "title", "width"));
         // 处理公式
         retStr = retStr.replaceAll("(\\\\\\()(.*?)(\\\\\\))", "\\$$2\\$");
@@ -519,14 +524,12 @@ public class HtmlPaperService {
 
     public byte[] createSmallWord(Map<String, byte[]> imgMap, String... content) throws IOException {
 
-        String text = String.join("\n", content);
+        String text = String.join("<br>", content);
         // 匹配公式
         text = text.replaceAll("\\$(.*?)\\$", "<latex>$1</latex>");
         // 需要去掉js中的转义
-//        text = StringEscapeUtils.unescapeEcmaScript(text);
+        text = StringEscapeUtils.unescapeHtml4(text);
         byte[] bytes = HtmlToWord.resolveHtml(text, imgMap);
-        File docx = new File("F:\\工作记录及文件及成果\\工作记录（2020）\\20200114-html试卷\\" + 2 + ".docx");
-        FileUtils.writeByteArrayToFile(docx, bytes, false);
         return bytes;
     }
 }
