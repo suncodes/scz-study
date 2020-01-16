@@ -11,8 +11,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
+import com.latextoword.Latex_Word;
 import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.docx4j.XmlUtils;
 import org.docx4j.dml.wordprocessingDrawing.Inline;
 import org.docx4j.jaxb.Context;
 import org.docx4j.model.structure.SectionWrapper;
@@ -59,9 +65,11 @@ import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.select.Elements;
 
+import javax.xml.bind.JAXBException;
+
 public class HtmlToWord {
 
-    private static String[] labelArray = new String[]{"table", "p", "img"};
+	private static String[] labelArray = new String[]{"table", "p", "img", "latex"};
 	private static ObjectFactory factory;
 	private static WordprocessingMLPackage wordMLPackage;
 
@@ -71,7 +79,6 @@ public class HtmlToWord {
 		 */
 		/* data是html片段 */
 		Document document = Jsoup.parseBodyFragment(data, "UTF-8");
-		/* Element element = document.body(); */
 		try {
 			wordMLPackage = WordprocessingMLPackage.createPackage();
 			factory = Context.getWmlObjectFactory();
@@ -79,34 +86,42 @@ public class HtmlToWord {
 			createFooterReference(relationship);
 			MainDocumentPart documentPart = wordMLPackage.getMainDocumentPart();
 			alterStyleSheet();
-            Element body = document.body();
-            List<Node> element = getElement(body);
+			Element body = document.body();
+			List<Node> element = getElement(body);
+			element = element.stream().filter(node -> StringUtils.isNotBlank(node.toString())).collect(Collectors.toList());
 			for (Node em : element) {
 				switch (em.nodeName()) {
-				case "img":
-					String imgSrc = em.attr("src");
-					byte[] bytes = imgMap.get(FilenameUtils.getBaseName(imgSrc));
-					addImageToPackage(wordMLPackage, bytes);
-					break;
-				case "table":
-					Tbl table = addTable((Element)em);
-					documentPart.addObject(table);
-					break;
-				case "p":
-					/*documentPart.addStyledParagraphOfText("Normal", "   " + em.text());*/
-					 P p = addParapraph(((Element)em).text());
-					 //设置首行缩进
-					 setFirstLine(p,"400");
-					 documentPart.getContent().add(p);
-					break;
-				default:
-					documentPart.addParagraphOfText(em.toString());
-					break;
+					case "img":
+						String imgSrc = em.attr("src");
+						byte[] bytes = imgMap.get(FilenameUtils.getBaseName(imgSrc));
+						addImageToPackage(wordMLPackage, bytes);
+						break;
+					case "table":
+						Tbl table = addTable((Element) em);
+						documentPart.addObject(table);
+						break;
+					case "p":
+						P p = addParapraph(((Element) em).text());
+						//设置首行缩进
+						setFirstLine(p, "400");
+						documentPart.getContent().add(p);
+						break;
+					case "latex":
+						System.out.println(em.outerHtml());
+						String text = ((Element) em).text();
+						Object wordFormulaObj = getWordFormulaObj(em.toString());
+						//  创建word的段落
+						P p1 = factory.createP();
+						//  将公式对象添加到段落中
+						p1.getContent().add(wordFormulaObj);
+						documentPart.getContent().add(p1);
+						break;
+					default:
+						documentPart.addParagraphOfText(em.toString());
+						break;
 				}
 			}
-
-
-            addPageBreak(documentPart);
+			addPageBreak(documentPart);
 			ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 			wordMLPackage.save(outputStream);
 			return outputStream.toByteArray();
@@ -116,30 +131,45 @@ public class HtmlToWord {
 		}
 	}
 
+	/**
+	 * 获取LaTeX值对应的word公式对象
+	 *
+	 * @param latex LaTeX值
+	 * @return 可直接添加到文档中的公式对象
+	 * @throws JAXBException
+	 */
+	private static Object getWordFormulaObj(String latex) throws JAXBException {
+		String convertResult = Latex_Word.latexToWordAlreadyClean(latex);
+		String requiredStr = " xmlns:w=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"" +
+				" xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\"";
+		convertResult = new StringBuilder(convertResult).insert(8, requiredStr).toString();
+		return XmlUtils.unmarshalString(convertResult);
+	}
+
 	public static List<Node> getElement(Node body) {
-        List<Node> elementList = new ArrayList<>();
-        List<Node> nodes = body.childNodes();
-        if (nodes.size() == 0) {
-            elementList.add(body);
-        } else {
-            if (Arrays.asList(labelArray).contains(body.nodeName())) {
-                elementList.add(body);
-            } else {
-                for (Node child : nodes) {
-                    elementList.addAll(getElement(child));
-                }
-            }
-        }
-        return elementList;
-    }
+		List<Node> elementList = new ArrayList<>();
+		List<Node> nodes = body.childNodes();
+		if (nodes.size() == 0) {
+			elementList.add(body);
+		} else {
+			if (Arrays.asList(labelArray).contains(body.nodeName())) {
+				elementList.add(body);
+			} else {
+				for (Node child : nodes) {
+					elementList.addAll(getElement(child));
+				}
+			}
+		}
+		return elementList;
+	}
 
 	/**
-	* @Title: addParapraph
-	* @Description: (文本转段落)
-	* @param @param text
-	* @param @return    设定文件
-	* @return P    返回类型
-	* @throws
+	 * @Title: addParapraph
+	 * @Description: (文本转段落)
+	 * @param @param text
+	 * @param @return    设定文件
+	 * @return P    返回类型
+	 * @throws
 	 */
 	private static P addParapraph(String text) {
 		factory=Context.getWmlObjectFactory();
@@ -155,32 +185,32 @@ public class HtmlToWord {
 	}
 
 	/**
-	* @Title: setFirstLine
-	* @Description: TODO(设置段落首行缩进)
-	* @param @param p
-	* @param @param str    设定文件
-	* @return void    返回类型
-	* @throws
+	 * @Title: setFirstLine
+	 * @Description: TODO(设置段落首行缩进)
+	 * @param @param p
+	 * @param @param str    设定文件
+	 * @return void    返回类型
+	 * @throws
 	 */
 	private static void setFirstLine(P p ,String str) {
-		 PPr ppr = getPPr(p);
-	        Ind ind = ppr.getInd();
-	        if (ind == null) {
-	            ind = new Ind();
-	            ppr.setInd(ind);
-	        }
-	     /*   ind.setFirstLineChars(new BigInteger("200"));*/
-	       ind.setFirstLine(new BigInteger(str));
+		PPr ppr = getPPr(p);
+		Ind ind = ppr.getInd();
+		if (ind == null) {
+			ind = new Ind();
+			ppr.setInd(ind);
+		}
+		/*   ind.setFirstLineChars(new BigInteger("200"));*/
+		ind.setFirstLine(new BigInteger(str));
 	};
 
 	private static PPr getPPr(P p) {
-	        PPr ppr = p.getPPr();
-	        if (ppr == null) {
-	            ppr = new PPr();
-	            p.setPPr(ppr);
-	        }
-	        return ppr;
-	    }
+		PPr ppr = p.getPPr();
+		if (ppr == null) {
+			ppr = new PPr();
+			p.setPPr(ppr);
+		}
+		return ppr;
+	}
 
 	/**
 	 *         table @param @return 设定文件 @return Tbl 返回类型 @throws

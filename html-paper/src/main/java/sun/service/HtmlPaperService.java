@@ -1,6 +1,7 @@
 package sun.service;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.docx4j.relationships.Relationship;
 import org.jsoup.safety.Whitelist;
 import sun.enums.QuestTypeEnum;
@@ -98,25 +99,39 @@ public class HtmlPaperService {
         for (QuestionsNoRepeatPO questionsNoRepeatPO : questionsNoRepeatPOList) {
             System.out.println(Arrays.toString(getNullPropertyNames(questionsNoRepeatPO)));
         }
-
-
-
         // TODO 实际导入之前需要去重
-        Map<String, byte[]> imgMap = htmlPaperBO.getImgMap();
-        List<HtmlPaperBO.HtmlQuestBO> htmlQuestBOList = htmlPaperBO.getHtmlQuestBOList().subList(20, 21);
-        for (HtmlPaperBO.HtmlQuestBO htmlQuestBO : htmlQuestBOList) {
-            String rowKey = htmlQuestBO.getRowKey();
-            String content = htmlQuestBO.getContent();
-            System.out.println(content);
-            byte[] questSmallWord = createSmallWord(imgMap, content);
-//            break;
+        // 导入试题
+//        HBaseUtils hBaseUtils = new HBaseUtils(Constant.ZOOKEEPER);
+//        if (IS_IMPORT_HBASE) {
+//            QuestInfoBO questInfoBO = new QuestInfoBO(questionsImportPO, questionsNoRepeatPOList);
+//            wordAnalysisService.insertToHbase(questInfoBO);
+//        }
+//        // 图片入库
+//        if (IS_UPLOAD_PIC) {
+//            Map<String, byte[]> imgMap = htmlPaperBO.getImgMap();
+//            for (String rowKey : imgMap.keySet()) {
+//                hBaseUtils.insertFileBytes2HBase(Constant.QUEST_IMAGE, rowKey, Constant.COLUMN_FAMILY,
+//                        "IMAGE", imgMap.get(rowKey));
+//            }
+//        }
+        // 小word入库
+//        if (IS_UPLOAD_SMALL_WORD) {
+            Map<String, byte[]> imgMap = htmlPaperBO.getImgMap();
+            for (QuestionsNoRepeatPO questionsNoRepeatPO : questionsNoRepeatPOList) {
+                String qseq = questionsNoRepeatPO.getQseq();
+                String rowKey = questionsNoRepeatPO.getRowKey();
+                String content = questionsNoRepeatPO.getContent();
+                System.out.println(content);
+                byte[] questSmallWord = createSmallWord(imgMap, content);
 
-//            String answer = questionsNoRepeatPO.getAnswer();
-//            String analysis = questionsNoRepeatPO.getAnalysis();
-//            byte[] answerSmallWord = createSmallWord(answer, analysis);
-
-        }
-
+//                String answer = questionsNoRepeatPO.getAnswer();
+//                String analysis = questionsNoRepeatPO.getAnalysis();
+//                byte[] answerSmallWord = createSmallWord(imgMap, answer, analysis);
+//                File docx1 = new File("F:\\工作记录及文件及成果\\工作记录（2020）\\20200114-html试卷\\" + qseq + "-answer.docx");
+//                FileUtils.writeByteArrayToFile(docx1, answerSmallWord, false);
+                break;
+            }
+//        }
     }
 
     /**
@@ -134,7 +149,7 @@ public class HtmlPaperService {
         HtmlPaperBO.HtmlQuestBO htmlQuestBO = htmlQuestBOList.get(0);
         String qNum = htmlQuestBO.getQseq();
         String path = htmlPaperBO.getPath();
-        OrgStageEnum orgStage = OrgStageEnum.LE;
+//        OrgStageEnum orgStage = wordAnalysisService.getOrgStage(path);
         // 读取地区、学校信息
 //        Map<Integer, List<String>> areaMap = TextbookVersionInfoService.getAreaVersionFromHive();
 //        Map<Integer, List<String>> orgMap = TextbookVersionInfoService.getOrgVersionFromHive();
@@ -144,7 +159,7 @@ public class HtmlPaperService {
                 .rowKey(UUID.randomUUID().toString().replace("-", ""))
                 .path(path).questNum(qNum).resourceType(String.valueOf(ResourceTypeEnum.MNSJ.getType()))
                 .resourceSubType(String.valueOf(ResourceSubTypeEnum.SCHOOL_EXAM.getCode()))
-                .orgStage(String.valueOf(orgStage == null ? null : orgStage.getCode()))
+//                .orgStage(String.valueOf(orgStage == null ? null : orgStage.getCode()))
                 .resourceName(htmlPaperBO.getResourceName())
                 .build();
 //        copyPropertiesIgnoreNull(paperTypeReturnBO, questionsImportPO);
@@ -174,11 +189,10 @@ public class HtmlPaperService {
         for (HtmlPaperBO.HtmlQuestBO htmlQuestBO : htmlQuestBOList) {
             // 判断每一道题的题型
             QuestTypeEnum qTypeByAnswer = getQTypeByAnswer(htmlQuestBO.getAnswer());
-            // 每一道题解析出对应的图片
-            parseHtmlPic(htmlQuestBO, imgMap, needImportImageMap);
+            // 每一道题去标签，且解析出对应的图片
+            parseHtmlLabelAndPic(htmlQuestBO, imgMap, needImportImageMap);
 
             String rowKey = UUID.randomUUID().toString().replace("-", "");
-            htmlQuestBO.setRowKey(rowKey);
             QuestionsNoRepeatPO questionsNoRepeatPO = QuestionsNoRepeatPO.builder()
                     .rowKey(rowKey)
                     .resourceType(questionsImportPO.getResourceType())
@@ -187,7 +201,6 @@ public class HtmlPaperService {
                     .qType(qTypeByAnswer.getCode()).stage(qTypeByAnswer.getDesc())
                     .build();
             copyPropertiesIgnoreNull(htmlQuestBO, questionsNoRepeatPO);
-            removeHtmlLabel(questionsNoRepeatPO);
             questionsNoRepeatPOList.add(questionsNoRepeatPO);
             Double score = questionsNoRepeatPO.getScore();
             if (score != null) {
@@ -208,22 +221,22 @@ public class HtmlPaperService {
      * @param imgMap
      * @param needImportImageMap
      */
-    public void parseHtmlPic(HtmlPaperBO.HtmlQuestBO htmlQuestBO, Map<String, byte[]> imgMap,
+    public void parseHtmlLabelAndPic(HtmlPaperBO.HtmlQuestBO htmlQuestBO, Map<String, byte[]> imgMap,
                                      Map<String, byte[]> needImportImageMap) {
         String content = htmlQuestBO.getContent();
-        // 替换图片
-        content = getReplacePicContent(content, imgMap, needImportImageMap);
+        // 去标签
+        content = getRemoveLabelContent(content, imgMap, needImportImageMap);
         htmlQuestBO.setContent(content);
 
         String answer = htmlQuestBO.getAnswer();
-        // 替换图片
-        answer = getReplacePicContent(answer, imgMap, needImportImageMap);
+        // 去标签
+        answer = getRemoveLabelContent(answer, imgMap, needImportImageMap);
         htmlQuestBO.setAnswer(answer);
 
 
         String analysis = htmlQuestBO.getAnalysis();
-        // 替换图片
-        analysis = getReplacePicContent(analysis, imgMap, needImportImageMap);
+        // 去标签
+        analysis = getRemoveLabelContent(analysis, imgMap, needImportImageMap);
         htmlQuestBO.setAnalysis(analysis);
     }
 
@@ -235,9 +248,15 @@ public class HtmlPaperService {
      * @param needImportImgMap
      * @return
      */
-    public String getReplacePicContent(String content, Map<String, byte[]> imgMap, Map<String, byte[]> needImportImgMap) {
+    public String getRemoveLabelContent(String content, Map<String, byte[]> imgMap, Map<String, byte[]> needImportImgMap) {
+        // 去标签
+//        String retStr = Jsoup.clean(content, Whitelist.none().addTags("p", "img", "table", "tr", "td", "th")
+//                .addAttributes("img", "align", "alt", "height", "src", "title", "width"));
+        String retStr = content;
+        // 处理公式
+        retStr = retStr.replaceAll("(\\\\\\()(.*?)(\\\\\\))", "\\$$2\\$");
         // 处理图片
-        Document document = Jsoup.parse(content);
+        Document document = Jsoup.parse(retStr);
         Elements img = document.getElementsByTag("img");
         for (Element element : img) {
             String src = element.attr("src");
@@ -251,25 +270,8 @@ public class HtmlPaperService {
                 }
             }
         }
-        return document.body().html();
-    }
-
-    public void removeHtmlLabel(QuestionsNoRepeatPO questionsNoRepeatPO) {
-        String content = questionsNoRepeatPO.getContent();
-        // TODO 去标签
-        String contentRetStr = Jsoup.clean(content, Whitelist.none().addTags("img", "sub", "sup", "math", "table", "tr", "td",
-                "th", "li", "u").addAttributes("img", "align", "alt", "height", "src", "title", "width"));
-        questionsNoRepeatPO.setContent(contentRetStr.replace("\n", ""));
-
-        String analysis = questionsNoRepeatPO.getAnalysis();
-        String analysisRetStr = Jsoup.clean(analysis, Whitelist.none().addTags("img", "sub", "sup", "math", "table", "tr", "td",
-                "th", "li", "u").addAttributes("img", "align", "alt", "height", "src", "title", "width"));
-        questionsNoRepeatPO.setAnalysis(analysisRetStr.replace("\n", ""));
-
-        String answer = questionsNoRepeatPO.getAnswer();
-        String answerRetStr = Jsoup.clean(answer, Whitelist.none().addTags("img", "sub", "sup", "math", "table", "tr", "td",
-                "th", "li", "u").addAttributes("img", "align", "alt", "height", "src", "title", "width"));
-        questionsNoRepeatPO.setAnswer(answerRetStr.replace("\n", ""));
+        // 去换行符
+        return document.body().html()/*.replace("\n", "<br/>")*/;
     }
 
     /**
@@ -435,9 +437,7 @@ public class HtmlPaperService {
         Set<String> emptyNames = new HashSet<>();
         for (java.beans.PropertyDescriptor pd : pds) {
             Object srcValue = src.getPropertyValue(pd.getName());
-            if (srcValue == null) {
-                emptyNames.add(pd.getName());
-            }
+            if (srcValue == null) emptyNames.add(pd.getName());
         }
         String[] result = new String[emptyNames.size()];
         return emptyNames.toArray(result);
@@ -516,47 +516,19 @@ public class HtmlPaperService {
         return htmlStream;
     }
 
-    /**
-     * 获取LaTeX值对应的word公式对象
-     *
-     * @param latex LaTeX值
-     * @return 可直接添加到文档中的公式对象
-     * @throws JAXBException
-     */
-    private static Object getWordFormulaObj(String latex) throws JAXBException {
-        String convertResult = Latex_Word.latexToWordAlreadyClean(latex);
-        String requiredStr = " xmlns:w=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"" +
-                " xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\"";
-        convertResult = new StringBuilder(convertResult).insert(8, requiredStr).toString();
-        return XmlUtils.unmarshalString(convertResult);
-    }
 
-    public byte[] createSmallWord(Map<String, byte[]> imgMap, String... content) throws Exception {
-        //  创建word数据包
-        WordprocessingMLPackage mlPackage = WordprocessingMLPackage.createPackage();
-        MainDocumentPart mainDoc = mlPackage.getMainDocumentPart();
-//        //  获取word公式对象
-//        String latex = "=3x^{2}-6xy-[3x^{2}-2y+2xy+2y]";   //  随便输入一个标准的latex值
-//        Object wordFormulaObj = getWordFormulaObj(latex);
-//        //  创建word的段落
-//        P p = factory.createP();
-//        //  将公式对象添加到段落中
-//        p.getContent().add(wordFormulaObj);
-//        mainDoc.addObject(p);
-//        //  创建文件并写入数据
-        File docx = new File("F:\\工程所用文档\\1.docx");
-//        mlPackage.save(docx);
+    public byte[] createSmallWord(Map<String, byte[]> imgMap, String... content) throws IOException {
 
-
-        for (String s : content) {
-            s = Jsoup.clean(s, Whitelist.none().addTags("p", "img", "table", "tr", "td", "th")
-                    .addAttributes("img", "align", "alt", "height", "src", "title", "width"));
-            byte[] bytes = HtmlToWord.resolveHtml(s, imgMap);
-            if (bytes != null) {
-                FileUtils.writeByteArrayToFile(docx, bytes, false);
-            }
-        }
-
-        return null;
+        String text = String.join("\n", content);
+        // 匹配公式
+        text = Jsoup.clean(text, Whitelist.none().addTags("p", "img", "table", "tr", "td", "th")
+                .addAttributes("img", "align", "alt", "height", "src", "title", "width"));
+        text = text.replaceAll("\\$(.*?)\\$", "<latex>$1</latex>");
+        // 需要去掉js中的转义
+        text = StringEscapeUtils.unescapeEcmaScript(text);
+        byte[] bytes = HtmlToWord.resolveHtml(text, imgMap);
+        File docx = new File("F:\\工作记录及文件及成果\\工作记录（2020）\\20200114-html试卷\\" + 2 + ".docx");
+        FileUtils.writeByteArrayToFile(docx, bytes, false);
+        return bytes;
     }
 }
