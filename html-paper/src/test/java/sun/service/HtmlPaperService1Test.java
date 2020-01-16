@@ -21,12 +21,12 @@ public class HtmlPaperService1Test {
     @Autowired
     private HtmlPaperService htmlPaperService;
 
-//    @Test
-//    public void f() throws IOException {
-//        String path = "羊山中学2019-2020学年度七年级上期期末考试.zip";
-//        File file = new File(path);
-//        htmlPaperService1.parseHtmlPaper(file);
-//    }
+    @Test
+    public void f() throws Exception {
+        String path = "F:\\工作记录及文件及成果\\工作记录（2020）\\20200107-word相关\\羊山中学2019-2020学年度七年级上期期末考试.zip";
+        File file = new File(path);
+        htmlPaperService.parseHtmlPaper(file);
+    }
 
     @Test
     public void f1() throws Exception {

@@ -250,9 +250,8 @@ public class HtmlPaperService {
      */
     public String getRemoveLabelContent(String content, Map<String, byte[]> imgMap, Map<String, byte[]> needImportImgMap) {
         // 去标签
-//        String retStr = Jsoup.clean(content, Whitelist.none().addTags("p", "img", "table", "tr", "td", "th")
-//                .addAttributes("img", "align", "alt", "height", "src", "title", "width"));
-        String retStr = content;
+        String retStr = Jsoup.clean(content, Whitelist.none().addTags("p", "img", "table", "tr", "td", "th", "<br/>")
+                .addAttributes("img", "align", "alt", "height", "src", "title", "width"));
         // 处理公式
         retStr = retStr.replaceAll("(\\\\\\()(.*?)(\\\\\\))", "\\$$2\\$");
         // 处理图片
@@ -271,7 +270,8 @@ public class HtmlPaperService {
             }
         }
         // 去换行符
-        return document.body().html()/*.replace("\n", "<br/>")*/;
+        System.out.println(document.body().html());
+        return document.body().html().replace("\n", "");
     }
 
     /**
@@ -521,11 +521,9 @@ public class HtmlPaperService {
 
         String text = String.join("\n", content);
         // 匹配公式
-        text = Jsoup.clean(text, Whitelist.none().addTags("p", "img", "table", "tr", "td", "th")
-                .addAttributes("img", "align", "alt", "height", "src", "title", "width"));
         text = text.replaceAll("\\$(.*?)\\$", "<latex>$1</latex>");
         // 需要去掉js中的转义
-        text = StringEscapeUtils.unescapeEcmaScript(text);
+//        text = StringEscapeUtils.unescapeEcmaScript(text);
         byte[] bytes = HtmlToWord.resolveHtml(text, imgMap);
         File docx = new File("F:\\工作记录及文件及成果\\工作记录（2020）\\20200114-html试卷\\" + 2 + ".docx");
         FileUtils.writeByteArrayToFile(docx, bytes, false);

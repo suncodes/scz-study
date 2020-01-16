@@ -63,6 +63,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
+import org.jsoup.parser.Parser;
 import org.jsoup.select.Elements;
 
 import javax.xml.bind.JAXBException;
@@ -70,15 +71,14 @@ import javax.xml.bind.JAXBException;
 public class HtmlToWord {
 
 	private static String[] labelArray = new String[]{"table", "p", "img", "latex"};
+    private static String[] needNewP = new String[]{"table", "p", "img"};
 	private static ObjectFactory factory;
 	private static WordprocessingMLPackage wordMLPackage;
 
 	public static byte[] resolveHtml(String data, Map<String, byte[]> imgMap) {
-		/*
-		 * data是完整的html Document document = Jsoup.parse(data);
-		 */
+
 		/* data是html片段 */
-		Document document = Jsoup.parseBodyFragment(data, "UTF-8");
+		Document document = Jsoup.parse(data);
 		try {
 			wordMLPackage = WordprocessingMLPackage.createPackage();
 			factory = Context.getWmlObjectFactory();
@@ -89,38 +89,50 @@ public class HtmlToWord {
 			Element body = document.body();
 			List<Node> element = getElement(body);
 			element = element.stream().filter(node -> StringUtils.isNotBlank(node.toString())).collect(Collectors.toList());
-			for (Node em : element) {
-				switch (em.nodeName()) {
-					case "img":
-						String imgSrc = em.attr("src");
-						byte[] bytes = imgMap.get(FilenameUtils.getBaseName(imgSrc));
-						addImageToPackage(wordMLPackage, bytes);
-						break;
-					case "table":
-						Tbl table = addTable((Element) em);
-						documentPart.addObject(table);
-						break;
-					case "p":
-						P p = addParapraph(((Element) em).text());
-						//设置首行缩进
-						setFirstLine(p, "400");
-						documentPart.getContent().add(p);
-						break;
-					case "latex":
-						System.out.println(em.outerHtml());
-						String text = ((Element) em).text();
-						Object wordFormulaObj = getWordFormulaObj(em.toString());
-						//  创建word的段落
-						P p1 = factory.createP();
-						//  将公式对象添加到段落中
-						p1.getContent().add(wordFormulaObj);
-						documentPart.getContent().add(p1);
-						break;
-					default:
-						documentPart.addParagraphOfText(em.toString());
-						break;
-				}
-			}
+			P newP = null;
+            for (int i = 0; i < element.size(); i++) {
+                Node em = element.get(i);
+                switch (em.nodeName()) {
+                    case "img":
+                        String imgSrc = em.attr("src");
+                        byte[] bytes = imgMap.get(FilenameUtils.getBaseName(imgSrc));
+                        addImageToPackage(wordMLPackage, bytes);
+                        break;
+                    case "table":
+                        Tbl table = addTable((Element) em);
+                        documentPart.addObject(table);
+                        break;
+                    case "p":
+                        P p = addParapraph(((Element) em).html());
+                        //设置首行缩进
+                        setFirstLine(p, "400");
+                        documentPart.getContent().add(p);
+                        break;
+                    case "latex":
+                        if (i == 0 || Arrays.asList(needNewP).contains(element.get(i - 1).nodeName())) {
+                            newP = factory.createP();
+                        }
+                        String text = ((Element) em).html();
+                        Object wordFormulaObj = getWordFormulaObj(text);
+                        //  将公式对象添加到段落中
+                        newP.getContent().add(wordFormulaObj);
+                        documentPart.getContent().add(newP);
+                        break;
+                    default:
+                        if (i == 0 || Arrays.asList(needNewP).contains(element.get(i - 1).nodeName())) {
+                            newP = factory.createP();
+                        }
+                        if (em.toString() != null) {
+                            Text t = factory.createText();
+                            t.setValue(em.toString());
+                            R run = factory.createR();
+                            run.getContent().add(t);
+                            newP.getContent().add(run);
+                            documentPart.addObject(newP);
+                        }
+                        break;
+                }
+            }
 			addPageBreak(documentPart);
 			ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 			wordMLPackage.save(outputStream);
